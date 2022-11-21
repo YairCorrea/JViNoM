@@ -1,4 +1,4 @@
-package JViNoM.Mdl;
+package JViNoM.Mdl.Bns;
 /**
  *	Bean for a static, like images and the like.
  *	@Author Yair Correa

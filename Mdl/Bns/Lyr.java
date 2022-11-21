@@ -1,4 +1,4 @@
-package JViNoM.Mdl;
+package JViNoM.Mdl.Bns;
 /**
  *	Bean for a layer..
  *	@Author Yair Correa
@@ -9,17 +9,24 @@ public class Lyr{
 	private int id;
 	private int scnId;
 	private JComponent[] cmpnnts;
-	
+	private int order;
+
 	public int gtId(){
 		return id;
 	}
 	public void stId(int id){
 		this.id=id;
 	}
+	public int gtOrdr(){
+		return ordr;
+	}
+	public void stOrdr(int id){
+		this.ordr=id;
+	}
 	public int gtScnId(){
 		return scnId;
 	}
-	public void stScntId(int id){
+	public void stScnId(int id){
 		this.scnId=id;
 	}
 	public String gtNm(){

@@ -1,4 +1,4 @@
-package JViNoM.Mdl;
+package JViNoM.Mdl.Bns;
 /**
  *	Bean for project.
  *	@Author Yair Correa
@@ -9,6 +9,24 @@ public class Prjct{
 	private int id;
 	private String nm;
 	private int[] aspctRltn;
+	private Scn[] scns;
+	private Sttc[] sttcs;
+	
+	public Sttc[] gtSttcs(){
+		return sttcs;
+	}
+
+	public void stSttcs(Sttc[] sttcs){
+		this.sttcs=sttcs;
+	}
+
+	public Scn[] gtScns(){
+		return scns;
+	}
+
+	public void stScns(Scn[] scns){
+		this.scns=scns;
+	}
 
 	public int gtId(){
 		return id;
@@ -31,7 +49,7 @@ public class Prjct{
 	public int[] gtAspctRltn(){
 		return lctn;
 	}
-	public void stLctn(int[] aspctRltn){
+	public void stAspctRltn(int[] aspctRltn){
 		this.aspctRltn=aspctRltn;
 	}
 }

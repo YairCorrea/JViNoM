@@ -1,4 +1,4 @@
-package JViNoM.Mdl;
+package JViNoM.Mdl.Bns;
 /**
  *	Bean for tools.
  *	@Author Yair Correa

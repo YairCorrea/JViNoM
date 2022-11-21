@@ -1,4 +1,4 @@
-package JViNoM.Mdl;
+package JViNoM.Mdl.Bns;
 /**
  *	Bean for a scene..
  *	@Author Yair Correa
@@ -8,7 +8,7 @@ public class Scn{
 	private String nm;
 	private int id;
 	private int prjctId;
-	private int[] lyrs;
+	private Lyr[] lyrs;
 	
 	public int gtId(){
 		return id;
@@ -28,10 +28,10 @@ public class Scn{
 	public void stNm(String nm){
 		this.nm=nm;
 	}
-	public int[] gtLyrs(){
+	public Lyr[] gtLyrs(){
 		return lyrs;
 	}
-	public void stLyrs(int[] lyrs){
+	public void stLyrs(Lyr[] lyrs){
 		this.lyrs=lyrs;
 	}
 }

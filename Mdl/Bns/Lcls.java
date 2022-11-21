@@ -1,4 +1,4 @@
-package JViNoM.Mdl;
+package JViNoM.Mdl.Bns;
 /**
  *	Bean for locales.
  *	@Author Yair Correa
@@ -15,7 +15,7 @@ public class Lcls{
 	public void stId(int id){
 		this.id=id;
 	}
-	public String[] gtTet(){
+	public String[] gtTxt(){
 		return txts;
 	}
 	public void stTxt(String[] txts){

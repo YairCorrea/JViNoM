@@ -9,33 +9,60 @@ import JViNoM.Mdl.DAO;
  *	@Version 2211
  */
 public class TlsDAO implements DAO{
+	private ArrayList<Tls> arryTls;
+	private FLWrtr flWrtr;
+	public TlsDAO(){
+		arryTls=flWrtr.rd("Tls");
+	}
 	/**
 	 *	Get a specific object of a kind.
 	 *	@param int id for said object
 	 *	@return T The object searched for or a NULL.
 	 */
 	public Tls gt(int id){
-
+		return arryTls.get(id);
 	}
 	/**
 	 *	Get all objects of a kind.
 	 *	@return Tls A list containing all the objects of said kind..
 	 */
-	public ArrayList<Tls> gtAll(){}
+	public ArrayList<Tls> gtAll(){
+		return arryTls;
+	}
 	/**
 	 *	Saves into our persistance layer an object..
 	 *	@param Tls Tlshe object to save
 	 */
-	public void sv(Tls tSv){}
+	public void sv(Tls tSv){
+		int tmStmp=arryTls.size();
+		tSv.stId(tmpStmp);
+		arryTls.add(tSv);
+		flWrtr.sv("Tls",arryTls);
+	}
 	/**
-	 * 	Updates a certain EXISTlsING object's parameters..
+	 * 	Updates a certain EXISTING object's parameters..
 	 *	@param Tls key for said object
-	 *	@param String[] parameters in the order of the corresponding bean.
+	 *	@param String[] parameters in the order of [toolCode,toolName,imageIcon location].
 	 */
-	public void updt(Tls bngEdtd, String[] prmtrs){}
+	public void updt(int bngEdtd, Object[] prmtrs){
+		Tls tmp=arryTls.get(bngEdtd);
+		tmp.stTlCd((String)prmtrs[0]);
+		tmp.stTlNm((String)prmtrs[1]);
+		tmp.stImgIcnTl((String)prmtrs[1]);
+		flWrtr.sv("Tls",arryTls);
+	}
 	/**
-	 *	Deletes a specific object of a kind.
+	 *	Deletes a specific object of a kind. 
 	 *	@param Tls  key for object.
 	 */
-	public void dlt(Tls bngDltd){}
+	public void dlt(int bngDltd){
+		int tmp=arryTls.size()-(1+bngDltd);
+		arryTls.remove(bngDltd);
+		for(int i=0;i<tmp;i++){
+			Tls rnm=arryTls.get(bngDltd+i);
+			rnm.stId(bngDltd+i);
+		}
+		if(ownr!=null)ownr.stTlss(arryTls);
+		flWrtr.sv("Tls",arryTls);
+	}
 }
