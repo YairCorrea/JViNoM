@@ -2,13 +2,15 @@ package JViNoM.Mdl.Dao;
 
 import JViNoM.Mdl.Bns.Cnfgs;
 import JViNoM.Mdl.DAO;
+import JViNoM.Mdl.FlWrtr;
 
+import java.util.ArrayList;
 /**
  *	Data Access Object for configurations.
  *	@Author Yair Correa
  *	@Version 2211
  */
-public class CnfgsDAO implements DAO{
+public class CnfgsDAO implements DAO<Cnfgs>{
 	private ArrayList<Cnfgs> arryCnfgs;
 	private FLWrtr flWrtr;
 	public CnfgsDAO(){

@@ -1,10 +1,12 @@
 package JViNoM.Mdl.Bns;
+
+import java.io.Serializable;
 /**
  *	Bean for locales.
  *	@Author Yair Correa
  *	@Version 2211
  */
-public class Lcls{
+public class Lcls implements Serializable{
 	private String[] txts;
 	private String lclNm;
 	private int id;

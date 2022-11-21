@@ -2,6 +2,9 @@ package JViNoM.Mdl.Dao;
 
 import JViNoM.Mdl.Bns.Tls;
 import JViNoM.Mdl.DAO;
+import JViNoM.Mdl.FlWrtr;
+
+import java.util.ArrayList.*;
 
 /**
  *	Data Access Object for tools.

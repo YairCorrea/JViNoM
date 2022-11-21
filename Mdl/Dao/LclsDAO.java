@@ -3,6 +3,7 @@ package JViNoM.Mdl.Dao;
 import JViNoM.Mdl.Bns.Lcls;
 import JViNoM.Mdl.DAO;
 
+import JViNoM.Mdl.FlWrtr;
 /**
  *	Data Access Object for locales.
  *	@Author Yair Correa

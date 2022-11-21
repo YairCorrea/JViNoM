@@ -1,10 +1,12 @@
 package JViNoM.Mdl.Bns;
+
+import java.io.Serializable;
 /**
  *	Bean for project.
  *	@Author Yair Correa
  *	@Version 2211
  */
-public class Prjct{
+public class Prjct implements Serializable{
 	private String lctn;
 	private int id;
 	private String nm;

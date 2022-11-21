@@ -1,10 +1,12 @@
 package JViNoM.Mdl.Bns;
+
+import java.io.Serializable;
 /**
  *	Bean for a scene..
  *	@Author Yair Correa
  *	@Version 2211
  */
-public class Scn{
+public class Scn implements Serializable{
 	private String nm;
 	private int id;
 	private int prjctId;

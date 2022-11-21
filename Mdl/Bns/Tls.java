@@ -1,10 +1,12 @@
 package JViNoM.Mdl.Bns;
+
+import java.io.Serializable;
 /**
  *	Bean for tools.
  *	@Author Yair Correa
  *	@Version 2211
  */
-public class Tls{
+public class Tls implements Serializable{
 	private int id;
 	private String tlCd;
 	private String tlNm;

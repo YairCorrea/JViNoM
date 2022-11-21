@@ -1,10 +1,12 @@
 package JViNoM.Mdl.Bns;
+
+import java.io.Serializable;
 /**
  *	Bean for a static, like images and the like.
  *	@Author Yair Correa
  *	@Version 2211
  */
-public class Sttc{
+public class Sttc implements Serializable{
 	private String flNm;
 	private int id;
 	private String lctn;

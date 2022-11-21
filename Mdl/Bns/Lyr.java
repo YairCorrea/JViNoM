@@ -1,10 +1,12 @@
 package JViNoM.Mdl.Bns;
+
+import java.io.Serializable;
 /**
  *	Bean for a layer..
  *	@Author Yair Correa
  *	@Version 2211
  */
-public class Lyr{
+public class Lyr implements Serializable{
 	private String nm;
 	private int id;
 	private int scnId;
