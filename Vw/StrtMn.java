@@ -1,6 +1,6 @@
 package JViNoM.Vw;
 
-import java.awt.*
+import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
@@ -12,13 +12,19 @@ import JViNoM.Cntrllr.*;
  */
 public class StrtMn implements GSttIntrfc{
 	private JPanel rtrnbl;
+	private TxtFtchr txtFtchr=TxtFctchr.gtInstnc();
+	private SttcFtchr sttcFtchr=new sttcFtchr();
 	//State methods
 	public void crtNwPrjct(){
 		super.gtCntxt().gtCrtNwPrjct();
 	}
-	public void crtNwScn(){}
-	public void opnFl(){}
-	public void cncl(){}
+	public void crtNwScn(){
+	}
+	public void opnFl(){
+	}
+	public void cncl(){
+
+	}
 
 	/**
 	 *	Get the view of THIS state.
@@ -30,7 +36,7 @@ public class StrtMn implements GSttIntrfc{
 			rtrnbl=new JPanel();
 
 			rtrnbl.setSize(width,hght);
-			ActionListener lstnr=new StrMnLstnr();
+			ActionListener lstnr=new StrMnLstnr(this);
 
 			JLabel strt= new JLabel(txtFtchr.gtTxt(1));
 			JLabel nwPrjct=new JLabel(txtFtchr.gtTxt(2));
@@ -43,7 +49,12 @@ public class StrtMn implements GSttIntrfc{
 			JLabel mnl=new JLabel(txtFtchr.gtTxt(7));
 			JLabel srcCd=new JLabel(txtFtchr.gtTxt(8));
 
-			JLabel jvmn=new JLabel(sttcFtchr.gtImg())
+			mnl.setForeground(Color.BLUE.darker());
+			srcCd.setForeground(Color.BLUE.darker());
+
+			mnl.addActionListener(lstnr);
+			srcCd.addActionListener(listnr);
+			JLabel jvmn=new JLabel(sttcFtchr.gtImg(0));
 		}
 		return rtrnbl;
 	}

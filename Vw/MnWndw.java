@@ -66,10 +66,10 @@ public class MnWndw implements Wndw{
 		hght= scrnSz.getHeight();
 
 		sttcFtchr=new SttcFtchr();	
-		icLctn=sttcFtchr.getImg(1);
+		icLctn=sttcFtchr.getImg(0);
 		txtFtchr=new TxtFtchr();
 		wbFtchr=new WbFtchr();
 		JFrame mnWndw=new JFrame(ttl);
-		mnWndw.setDefaultCloseOperation(JFrame."EXIT_ON_CLOSE");
+		mnWndw.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }

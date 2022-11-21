@@ -5,6 +5,6 @@ import javax.swing.*;
 
 public interface Wndw{
 	public JPanel obtnrCrtl();
-	public void stStt(GSttIntrfc);
+	public void stStt(GSttIntrfc gSttIntrfc);
 	public GSttIntrfc gtStt();
 }

@@ -15,7 +15,7 @@ public class SttcDAO implements DAO{
 	private ArrayList<Sttc> arrySttc;
 	private FLWrtr flWrtr;
 	private Prjct ownr;
-	public SttcDAO(String){
+	public SttcDAO(){
 		arryPrjct=flWrtr.rd("Sttcs");
 	}
 	public SttcDAO(Prjct ownr){
