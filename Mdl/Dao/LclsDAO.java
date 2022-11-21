@@ -9,7 +9,7 @@ import JViNoM.Mdl.FlWrtr;
  *	@Author Yair Correa
  *	@Version 2211
  */
-public class LclsDAO implements DAO{
+public class LclsDAO implements DAO<Lcls>{
 	private ArrayList<Lcls> arryLcls;
 	private FLWrtr flWrtr;
 	public LclsDAO(){

@@ -12,7 +12,6 @@ import JViNoM.Cntrllr.*;
  */
 public class StrtMn implements GSttIntrfc{
 	private JPanel rtrnbl;
-
 	//State methods
 	public void crtNwPrjct(){
 		super.gtCntxt().gtCrtNwPrjct();
