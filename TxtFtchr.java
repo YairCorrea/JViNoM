@@ -17,8 +17,8 @@ public class TxtFtchr{
 	private TxtFtchr(){
 		LclsSrvc lclsSrvc=new LclsSrvc(new LclsDAO());
 		CnfgsSrvc cnfgsSrvc=new CnfgsSrvc(new CnfgsDAO());
-		Cnfgs[] cnfg=(Cnfgs[])cnfgsSrvc.gtAllCnfgs().toArray();
-		Lcls[] lcls=(Lcls[])lclsSrvc.gtAllLcls().toArray();
+		Cnfgs[] cnfg=cnfgsSrvc.gtAllCnfgs().toArray(new Cnfgs[0]);
+		Lcls[] lcls=lclsSrvc.gtAllLcls().toArray(new Lcls[0]);
 		for(int i=0; i<lcls.length;i++){
 			if(lcls[i].gtLclNm().equals(cnfg[0].gtIdm())){
 				txt=lcls[i].gtTxt();

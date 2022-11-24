@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class CnfgsDAO implements DAO<Cnfgs>{
 	private ArrayList<Cnfgs> arryCnfgs;
-	private FlWrtr flWrtr;
+	private FlWrtr flWrtr=new FlWrtr();
 	public CnfgsDAO(){
 		arryCnfgs=flWrtr.rd("Cnfgs");
 	}

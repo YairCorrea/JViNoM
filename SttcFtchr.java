@@ -12,7 +12,7 @@ public class SttcFtchr{
 	private Icon[] imgs;
 	public SttcFtchr(){
 		SttcSrvc sttcSrvc=new SttcSrvc(new SttcDAO());
-		Sttc[] sttcs=(Sttc[])sttcSrvc.gtAllSttc().toArray();
+		Sttc[] sttcs=sttcSrvc.gtAllSttc().toArray(new Sttc[0]);
 		imgs=new Icon[sttcs.length];
 		for(int i=0;i<sttcs.length;i++){
 			imgs[i]=new ImageIcon(sttcs[i].gtLctn());

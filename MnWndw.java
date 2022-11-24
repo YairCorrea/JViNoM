@@ -55,6 +55,7 @@ public class MnWndw implements Wndw{
 	public static void main(String[] args){
 		System.out.println("JViNoM mk.2211");
 		System.out.println("Si puedes leer esto, me debes un tamal. Puedes enviar $10 mxn a la CLABE 058597000009174926. Me llamo Yair Uriel Correa Trejo. Gracias por la comida.");
+		MnWndw mnWndw=new MnWndw();
 	}
 
 	/**
@@ -68,9 +69,15 @@ public class MnWndw implements Wndw{
 		hght= (int) scrnSz.getHeight();
 
 		sttcFtchr=new SttcFtchr();	
-		Icon icLctn=sttcFtchr.gtSttc(0);
+		Image icLctn=((ImageIcon)sttcFtchr.gtSttc(0)).getImage();
 		txtFtchr=TxtFtchr.gtInstnc();
 		JFrame mnWndw=new JFrame(ttl);
 		mnWndw.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		mnWndw.setSize(wdth,hght);
+		mnWndw.setIconImage(icLctn);
+		JPnlCrtl main=new JPnlCrtl(ttl,this);
+		mnWndw.setContentPane(main.obtnrCrtl());
+
+		mnWndw.setVisible(true);
 	}
 }

@@ -10,7 +10,6 @@ import javax.swing.*;
  *	@Version 2211
  */
 public class JPnlCrtl extends Dcrtr{
-	private JPanel thsPnl;
 	private GSttIntrfc actl;
 	
 	private final GSttIntrfc trEdtr;
@@ -21,7 +20,7 @@ public class JPnlCrtl extends Dcrtr{
 	private final GSttIntrfc prjctScnsLst;
 
 	private int wdth,hght;
-	public JPnlCrtl(String ttl, Wndw pdr){
+	public JPnlCrtl(String ttl,int wdth,int hght, Wndw pdr){
 		super(ttl,pdr);
 		trEdtr=new TrEdtr();
 		strtMn=new StrtMn();
@@ -29,9 +28,9 @@ public class JPnlCrtl extends Dcrtr{
 		crtNwPrjct=new CrtNwPrjct();
 		edtr=new Edtr();
 		prjctScnsLst=new PrjctScnsLst();
-
+		this.wdth=width;
+		this.hght=hght;
 		actl=strtMn;
-		thsPnl=actl.gtVw(wdth,hght);
 	}
 	/**
 	 *	Returns the view of this state/view.
@@ -40,8 +39,7 @@ public class JPnlCrtl extends Dcrtr{
 	 *	@return JPanel The panel cointaining this status graphical components.
 	 */
 	public JPanel obtnrCrtl(){
-		JPanel rtrnbl=new JPanel();
-		return rtrnbl;
+		return actl.gtVw(wdth,hght);
 	}
 	/**
 	 *	Chance status of frame/panel, pass the status that you need it to move to.

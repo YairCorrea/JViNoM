@@ -5,7 +5,13 @@ import JViNoM.Mdl.Bns.*;
 import java.io.*;
 
 import java.util.ArrayList;
+/**
+ * A class with very simple filewriting capacities. Used as a dumb stance on the persitance layer.
+ * @Author Yair Correa
+ * @Version 2211
+ */
 public class FlWrtr<T>{
+
 	public ArrayList<T> rd(String lctn){
 		ArrayList<T> rtrnbl=new ArrayList<T>();
 		try{

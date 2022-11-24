@@ -52,9 +52,24 @@ public class StrtMn extends GSttIntrfc{
 			mnl.setForeground(Color.BLUE.darker());
 			srcCd.setForeground(Color.BLUE.darker());
 
+			nwPrjct.addMouseListener(lstnr);
+			opnFl.addMouseListener(lstnr);
+			ntRcnt.addMouseListener(lstnr);
+			cmmnt.addMouseListener(lstnr);
 			mnl.addMouseListener(lstnr);
 			srcCd.addMouseListener(lstnr);
 			JLabel jvmn=new JLabel(sttcFtchr.gtSttc(0));
+			
+			rtrnbl.add(strt);
+			rtrnbl.add(nwPrjct);
+			rtrnbl.add(opnFl);
+			rtrnbl.add(rcnt);
+			rtrnbl.add(ntRcnt);
+			rtrnbl.add(cmmnt);
+			rtrnbl.add(mnl);
+			rtrnbl.add(srcCd);
+			rtrnbl.add(jvmn);
+
 		}
 		return rtrnbl;
 	}

@@ -13,7 +13,7 @@ import JViNoM.Mdl.FlWrtr;
  */
 public class LclsDAO implements DAO<Lcls>{
 	private ArrayList<Lcls> arryLcls;
-	private FlWrtr flWrtr;
+	private FlWrtr flWrtr=new FlWrtr();
 	public LclsDAO(){
 		arryLcls=flWrtr.rd("Lcls");
 	}

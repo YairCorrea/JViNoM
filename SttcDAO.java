@@ -14,7 +14,7 @@ import java.util.Arrays;
  */
 public class SttcDAO implements DAO<Sttc>{
 	private ArrayList<Sttc> arrySttc;
-	private FlWrtr flWrtr;
+	private FlWrtr flWrtr=new FlWrtr();;
 	private Prjct ownr;
 	public SttcDAO(){
 		arrySttc=flWrtr.rd("Sttcs");
@@ -46,6 +46,7 @@ public class SttcDAO implements DAO<Sttc>{
 		tSv.stId(tmStmp);
 		arrySttc.add(tSv);
 		if(ownr!=null)ownr.stSttcs((Sttc[])arrySttc.toArray());
+		if(ownr==null)flWrtr.sv("Sttcs",arrySttc);
 		return tmStmp;
 	}
 	/**
