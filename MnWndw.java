@@ -45,7 +45,6 @@ public class MnWndw implements Wndw,Obsrvr{
 
 	public void updt(JPanel nw){
 		mnWndw.setContentPane(nw);
-		mnWndw.repaint();
 	}
 	/**
 	 * 	Returns this frame's title.

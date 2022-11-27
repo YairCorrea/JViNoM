@@ -65,10 +65,10 @@ public class CrtNwPrjct extends GSttIntrfc{
 			svT=new JLabel(txtFtchr.gtTxt(11));
 			dfltAspctRt=new JLabel(txtFtchr.gtTxt(12));
 
-			nmT=new JTextArea();
-			svTT=new JTextArea();
-			wdt=new JTextArea();
-			hgh=new JTextArea();
+			nmT=new JTextArea(2,20);
+			svTT=new JTextArea(2,20);
+			wdt=new JTextArea(2,4);
+			hgh=new JTextArea(2,4);
 
 			chsFl=new JButton(sttcFtchr.gtSttc(0));
 			crt=new JButton(txtFtchr.gtTxt(13));

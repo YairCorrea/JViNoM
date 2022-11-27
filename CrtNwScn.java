@@ -11,7 +11,15 @@ import JViNoM.Cntrllr.*;
  *	@Version 2211
  */
 public class CrtNwScn extends GSttIntrfc{
+	private JFrame scnWndw;
+	private JLabel nm;
 	private JPanel rtrnbl;
+
+	public JTextArea nmT;
+
+	private JButton crt;
+	private JButton cncl;
+
 	private TxtFtchr txtFtchr=TxtFtchr.gtInstnc();
 	private SttcFtchr sttcFtchr=new SttcFtchr();
 	public CrtNwScn(JPnlCrtl cntxt,int a, int b){
@@ -22,11 +30,13 @@ public class CrtNwScn extends GSttIntrfc{
 		super.gtCntxt().gtCrtNwPrjct();
 	}
 	public void crtNwScn(){
+		this.cncl();
 	}
 	public void opnFl(){
+		//NA
 	}
 	public void cncl(){
-
+		scnWndw.setVisible(false);
 	}
 
 	/**
@@ -36,10 +46,32 @@ public class CrtNwScn extends GSttIntrfc{
 	 */
 	public JPanel gtVw(int wdth,int hght){
 		if(rtrnbl==null){
-			rtrnbl=new JPanel();
+			scnWndw=new JFrame(txtFtchr.gtTxt(9)+cntxt.gtTtl());
 
-			rtrnbl.setSize(wdth,hght);
+			scnWndw.setSize((int)wdth/2,(int)hght/2);
+
+			rtrnbl=new JPanel();
+			rtrnbl.setSize((int)wdth/2,(int)hght/2);
+
+			CrtNwScnLstnr crtNwScnLstnr=new CrtNwScnLstnr(this);
+			nm=new JLabel(txtFtchr.gtTxt(21));
+			
+			nmT=new JTextArea(2,20);
+			
+			crt=new JButton(txtFtchr.gtTxt(13));
+			cncl=new JButton(txtFtchr.gtTxt(14));
+
+			crt.addActionListener(crtNwScnLstnr);
+			cncl.addActionListener(crtNwScnLstnr);
+			
+			rtrnbl.add(nm);
+			rtrnbl.add(nmT);
+
+			rtrnbl.add(crt);
+			rtrnbl.add(cncl);
 		}
+		scnWndw.setContentPane(rtrnbl);
+		scnWndw.setVisible(true);
 		return rtrnbl;
 	}
 }
