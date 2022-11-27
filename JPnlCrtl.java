@@ -2,16 +2,18 @@ package JViNoM.Vw;
 
 import java.awt.*;
 import javax.swing.*;
-
+import java.util.ArrayList;
 /**
  *	Base for regular panels.
  *
  *	@Author Yair Correa
  *	@Version 2211
  */
-public class JPnlCrtl extends Dcrtr{
+public class JPnlCrtl extends Dcrtr implements Sbjct{
 	private GSttIntrfc actl;
-	
+
+	private ArrayList<Obsrvr> lstObsrvrs;
+
 	private final GSttIntrfc trEdtr;
 	private final GSttIntrfc strtMn;
 	private final GSttIntrfc crtNwScn;
@@ -22,13 +24,14 @@ public class JPnlCrtl extends Dcrtr{
 	private int wdth,hght;
 	public JPnlCrtl(String ttl,int wdth,int hght, Wndw pdr){
 		super(ttl,pdr);
-		trEdtr=new TrEdtr();
-		strtMn=new StrtMn();
-		crtNwScn=new CrtNwScn();
-		crtNwPrjct=new CrtNwPrjct();
-		edtr=new Edtr();
-		prjctScnsLst=new PrjctScnsLst();
-		this.wdth=width;
+		lstObsrvrs=new ArrayList<Obsrvr>();
+		trEdtr=new TrEdtr(this,wdth,hght);
+		strtMn=new StrtMn(this,wdth,hght);
+		crtNwScn=new CrtNwScn(this,wdth,hght);
+		crtNwPrjct=new CrtNwPrjct(this,wdth,hght);
+		edtr=new Edtr(this,wdth,hght);
+		prjctScnsLst=new PrjctScnsLst(this,wdth,hght);
+		this.wdth=wdth;
 		this.hght=hght;
 		actl=strtMn;
 	}
@@ -41,6 +44,14 @@ public class JPnlCrtl extends Dcrtr{
 	public JPanel obtnrCrtl(){
 		return actl.gtVw(wdth,hght);
 	}
+	public void ntfy(){
+		for(Obsrvr obs: lstObsrvrs){
+			obs.updt(this.obtnrCrtl());
+		}
+	}
+	public void attch(Obsrvr obs){
+		lstObsrvrs.add(obs);
+	}
 	/**
 	 *	Chance status of frame/panel, pass the status that you need it to move to.
 	 *
@@ -48,7 +59,7 @@ public class JPnlCrtl extends Dcrtr{
 	 *	@return void
 	 */
 	public void stStt(GSttIntrfc nwStts){
-		actl=nwStts;
+		this.actl=nwStts;
 	}
 	/**
 	 *	Returns the current status of this frame.

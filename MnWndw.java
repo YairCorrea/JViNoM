@@ -12,11 +12,11 @@ import JViNoM.Cntrllr.*;
  *	@Author Yair Correa
  *	@Version 2211
  */
-public class MnWndw implements Wndw{
+public class MnWndw implements Wndw,Obsrvr{
 	private final String ttl;
 	private final SttcFtchr sttcFtchr;
 	private TxtFtchr txtFtchr;
-
+	private JFrame mnWndw;
 	private int wdth,hght;
 	/**
 	 *	Returns the view of this state/view.
@@ -41,6 +41,11 @@ public class MnWndw implements Wndw{
 	 */
 	public GSttIntrfc gtStt(){
 		return null;
+	}
+
+	public void updt(JPanel nw){
+		mnWndw.setContentPane(nw);
+		mnWndw.repaint();
 	}
 	/**
 	 * 	Returns this frame's title.
@@ -71,11 +76,12 @@ public class MnWndw implements Wndw{
 		sttcFtchr=new SttcFtchr();	
 		Image icLctn=((ImageIcon)sttcFtchr.gtSttc(0)).getImage();
 		txtFtchr=TxtFtchr.gtInstnc();
-		JFrame mnWndw=new JFrame(ttl);
+		mnWndw=new JFrame(ttl);
 		mnWndw.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mnWndw.setSize(wdth,hght);
 		mnWndw.setIconImage(icLctn);
-		JPnlCrtl main=new JPnlCrtl(ttl,this);
+		JPnlCrtl main=new JPnlCrtl(ttl,wdth,hght,this);
+		main.attch(this);
 		mnWndw.setContentPane(main.obtnrCrtl());
 
 		mnWndw.setVisible(true);

@@ -14,6 +14,9 @@ public class Edtr extends GSttIntrfc{
 	private JPanel rtrnbl;
 	private TxtFtchr txtFtchr=TxtFtchr.gtInstnc();
 	private SttcFtchr sttcFtchr=new SttcFtchr();
+	public Edtr(JPnlCrtl cntxt,int a,int b){
+		super(cntxt,a,b);
+	}
 	//State methods
 	public void crtNwPrjct(){
 		super.gtCntxt().gtCrtNwPrjct();
