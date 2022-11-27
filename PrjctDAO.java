@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public class PrjctDAO implements DAO<Prjct>{
 	private ArrayList<Prjct> arryPrjct;
-	private FlWrtr flWrtr;
+	private FlWrtr flWrtr=new FlWrtr();
 	public PrjctDAO(){
 		arryPrjct=flWrtr.rd("Prjct");
 	}

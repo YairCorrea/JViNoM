@@ -14,16 +14,25 @@ public class PrjctScnsLst extends GSttIntrfc{
 	private JPanel rtrnbl;
 	private TxtFtchr txtFtchr=TxtFtchr.gtInstnc();
 	private SttcFtchr sttcFtchr=new SttcFtchr();
+	public PrjctScnsLst(JPnlCrtl cntxt,int a,int b){
+		super(cntxt,a,b);
+	}
 	//State methods
 	public void crtNwPrjct(){
-		super.gtCntxt().gtCrtNwPrjct();
+		super.gtCntxt().gtCrtNwPrjct().gtVw(super.wdth,super.hght);
 	}
 	public void crtNwScn(){
+		super.gtCntxt().gtCrtNwScn().gtVw(super.wdth,super.hght);
 	}
 	public void opnFl(){
+		//openFile.
+
 	}
 	public void cncl(){
-
+		//Return to strtMn
+		JPnlCrtl tmp=super.gtCntxt();
+		tmp.stStt(tmp.gtStrtMn());
+		tmp.ntfy();
 	}
 
 	/**
@@ -36,6 +45,27 @@ public class PrjctScnsLst extends GSttIntrfc{
 			rtrnbl=new JPanel();
 
 			rtrnbl.setSize(wdth,hght);
+			
+			MouseListener lstnr=new PrjctScnsLstLstnr(this);
+
+			JButton rtrn=new JButton(txtFtchr.gtTxt(15));
+
+			JLabel scns=new JLabel(txtFtchr.gtTxt(16));
+			JLabel nScns=new JLabel(txtFtchr.gtTxt(17));
+			JLabel crtNwScn=new JLabel(txtFtchr.gtTxt(18));
+			JLabel rcntScns=new JLabel(txtFtchr.gtTxt(19));
+			JLabel nRcntScns=new JLabel(txtFtchr.gtTxt(20));
+
+			nScns.addMouseListener(lstnr);
+			crtNwScn.addMouseListener(lstnr);
+			rtrn.addMouseListener(lstnr);
+
+			rtrnbl.add(rtrn);
+			rtrnbl.add(scns);
+			rtrnbl.add(nScns);
+			rtrnbl.add(crtNwScn);
+			rtrnbl.add(rcntScns);
+			rtrnbl.add(nRcntScns);
 		}
 		return rtrnbl;
 	}

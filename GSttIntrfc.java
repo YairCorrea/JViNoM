@@ -9,8 +9,14 @@ import javax.swing.*;
  * 	@Version 2211
  */
 public abstract class GSttIntrfc{
-	private JPnlCrtl cntxt;
+	protected JPnlCrtl cntxt;
+	protected int wdth,hght;
+	public GSttIntrfc(JPnlCrtl cntx,int w,int h){
+		this.cntxt=cntx;
+		this.wdth=w;
+		this.hght=h;
 
+	}
 	public abstract void crtNwPrjct();
 	public abstract void crtNwScn();
 	public abstract void opnFl();

@@ -15,15 +15,20 @@ public class StrtMn extends GSttIntrfc{
 	private TxtFtchr txtFtchr=TxtFtchr.gtInstnc();
 	private SttcFtchr sttcFtchr=new SttcFtchr();
 	//State methods
+	public StrtMn(JPnlCrtl cntx,int w,int h){
+		super(cntx,w,h);
+	}
 	public void crtNwPrjct(){
-		super.gtCntxt().gtCrtNwPrjct();
+		super.gtCntxt().gtCrtNwPrjct().gtVw(super.wdth,super.hght);
 	}
 	public void crtNwScn(){
+		System.out.println("Not available");
 	}
 	public void opnFl(){
+		//OpenFile
 	}
 	public void cncl(){
-
+		//None.
 	}
 
 	/**

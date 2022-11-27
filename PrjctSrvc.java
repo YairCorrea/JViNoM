@@ -15,7 +15,7 @@ public class PrjctSrvc{
 	private DAO<Prjct> dPrjct;
 	private Prjct crrntPrjct;
 	
-	PrjctSrvc(DAO<Prjct> dPrjct){
+	public PrjctSrvc(DAO<Prjct> dPrjct){
 		this.dPrjct=dPrjct;
 	}
 	/**

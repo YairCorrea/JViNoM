@@ -42,13 +42,43 @@ public class JViNoMdt{
 		cnfgs.stIdm("EsMx");
 		return cnfgs;
 	}
+	/**
+	 *	Locales order goes like:
+	 *	1.-JViNoM :D
+	 *	2.-Start greeting
+	 *	3.- New project text
+	 *	4.- Open project 
+	 *	5.- Recent
+	 *	6.- No recent projects message
+	 *	7.- Hehehe... COOMunitty
+	 *	8.-Manual
+	 *	9.- Source code
+	 *	10.- Creating new project
+	 *	11.-name of the project
+	 *	12.- Where to save?
+	 *	13.- Which aspect ratio?
+	 *	14.-Create!
+	 *	15.- Cancel :(
+	 *	16.- Return
+	 *	17.- Scenes
+	 *	18.-Not new scenes
+	 *	19.-Create new scene
+	 *	20.-Recent Scenes
+	 *	21.-Not recent scenes
+	 *	22.-Scene name
+	 *
+	 */
 	public static Lcls EsMxLcls(){
 		Lcls EsMx=new Lcls();
 		EsMx.stLclNm("EsMx");
-		String[] txts={"JViNoM","Inicio!","Nuevo Proyecto","Abrir proyecto","Reciente","No hay proyectos recientes :( (Porque no empezar uno :D?)","COOMunidad","Manual","Codigo fuente"};
+		String[] txts={"JViNoM","Inicio!","Nuevo Proyecto","Abrir proyecto","Reciente","No hay proyectos recientes :( (Porque no empezar uno :D?)","COOMunidad","Manual","Codigo fuente","Creando nuevo proyecto ","Nombre del proyecto:","Guardar en: "," Relacion de aspecto :"," Crear", "Cancelar","Regresar","Escenas","No hay escenas!(Porque no hacer una?)","Crear nueva escena","Escenas recientes","No hay escenas recientes","Nombre de la escena"};
 		EsMx.stTxt(txts);
+
 		return EsMx;
 	}
+	/**
+	 *	Statics for imgs. JViNoM currently does not have sound. It supports it, but does not comes with samples or anything.
+	 */
 	public static Sttc imgs(){
 		Sttc icon=new Sttc();
 		icon.stFlNm("jainima");
