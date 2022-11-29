@@ -14,15 +14,20 @@ public class PrjctScnsLst extends GSttIntrfc{
 	private JPanel rtrnbl;
 	private TxtFtchr txtFtchr=TxtFtchr.gtInstnc();
 	private SttcFtchr sttcFtchr=new SttcFtchr();
+	private int prjctId;
 	public PrjctScnsLst(JPnlCrtl cntxt,int a,int b){
 		super(cntxt,a,b);
+		prjctId=-1;
 	}
 	//State methods
 	public void crtNwPrjct(){
 		super.gtCntxt().gtCrtNwPrjct().gtVw(super.wdth,super.hght);
 	}
 	public void crtNwScn(){
-		super.gtCntxt().gtCrtNwScn().gtVw(super.wdth,super.hght);
+		CrtNwScn crtNwScn=(CrtNwScn)(super.gtCntxt().gtCrtNwScn());
+		crtNwScn.stPrjct(prjctId);
+		crtNwScn.gtVw(super.wdth,super.hght);
+
 	}
 	public void opnFl(){
 		//openFile.
@@ -33,6 +38,13 @@ public class PrjctScnsLst extends GSttIntrfc{
 		JPnlCrtl tmp=super.gtCntxt();
 		tmp.stStt(tmp.gtStrtMn());
 		tmp.ntfy();
+	}
+
+	public void stPrjct(int prjctId){
+		this.prjctId=prjctId;
+	}
+	public int gtPrjctId(){
+		return prjctId;
 	}
 
 	/**

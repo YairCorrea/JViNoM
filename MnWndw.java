@@ -79,6 +79,11 @@ public class MnWndw implements Wndw,Obsrvr{
 		mnWndw.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mnWndw.setSize(wdth,hght);
 		mnWndw.setIconImage(icLctn);
+		
+		MnBr mnBr=new MnBr();
+
+		mnWndw.setJMenuBar(mnBr.gtMb());
+		
 		JPnlCrtl main=new JPnlCrtl(ttl,wdth,hght,this);
 		main.attch(this);
 		mnWndw.setContentPane(main.obtnrCrtl());

@@ -46,7 +46,10 @@ public class CrtNwPrjctLstnr implements ActionListener{
 			prjctSrvc.stPrjct(prjct);
 
 			int prjctId=prjctSrvc.save();
+			PrjctScnsLst prjctLst=(PrjctScnsLst)cntxt.gtPrjctScnsLst();
+			prjctLst.stPrjct(prjctId);
 			cntxt.stStt(cntxt.gtPrjctScnsLst());
+
 			srcF.crtNwPrjct();
 			cntxt.ntfy();
 			return;

@@ -19,6 +19,7 @@ public class ScnDAO implements DAO<Scn>{
 	private Prjct ownr;
 	public ScnDAO(Prjct ownr){
 		arryScn=new ArrayList<Scn>(Arrays.asList(ownr.gtScns()));
+		this.ownr=ownr;
 	}
 	/**
 	 *	Get a specific object of a kind.
@@ -43,7 +44,7 @@ public class ScnDAO implements DAO<Scn>{
 		int tmStmp=arryScn.size();
 		tSv.stId(tmStmp);
 		arryScn.add(tSv);
-		ownr.stScns((Scn[])arryScn.toArray());
+		ownr.stScns((Scn[])arryScn.toArray(new Scn[0]));
 		return tmStmp;
 	}
 	/**

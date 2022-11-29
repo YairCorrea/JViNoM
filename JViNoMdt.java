@@ -24,6 +24,8 @@ public class JViNoMdt{
 		LclsSrvc lclsSrvc=new LclsSrvc(lclsDAO);
 		lclsSrvc.stLcls(EsMxLcls());
 		lclsSrvc.save();
+		lclsSrvc.stLcls(EnUsLcls());
+		lclsSrvc.save();
 
 		flWrtr.sv("Sttcs",new ArrayList<Sttc>());
 		SttcDAO sttcDAO=new SttcDAO();
@@ -66,15 +68,34 @@ public class JViNoMdt{
 	 *	20.-Recent Scenes
 	 *	21.-Not recent scenes
 	 *	22.-Scene name
+	 *	23.- File
+	 *	24.- Edit
+	 *	25.- Image
+	 *	26.- Layer
+	 *	27.- Select
+	 *	28.-Scripts
+	 *	29.-Settings
+	 *	30.-Window
+	 *	31.- Help
 	 *
 	 */
 	public static Lcls EsMxLcls(){
 		Lcls EsMx=new Lcls();
 		EsMx.stLclNm("EsMx");
-		String[] txts={"JViNoM","Inicio!","Nuevo Proyecto","Abrir proyecto","Reciente","No hay proyectos recientes :( (Porque no empezar uno :D?)","COOMunidad","Manual","Codigo fuente","Creando nuevo proyecto ","Nombre del proyecto:","Guardar en: "," Relacion de aspecto :"," Crear", "Cancelar","Regresar","Escenas","No hay escenas!(Porque no hacer una?)","Crear nueva escena","Escenas recientes","No hay escenas recientes","Nombre de la escena"};
+		String[] txts={"JViNoM","Inicio!","Nuevo Proyecto","Abrir proyecto","Reciente","No hay proyectos recientes :( (Porque no empezar uno :D?)","COOMunidad","Manual","Codigo fuente","Creando nuevo proyecto ","Nombre del proyecto:","Guardar en: "," Relacion de aspecto :"," Crear", "Cancelar","Regresar","Escenas","No hay escenas!(Porque no hacer una?)","Crear nueva escena","Escenas recientes","No hay escenas recientes","Nombre de la escena","Archivo","Editar","Imagen","Capa","Seleccion","Scripts","Configuraciones","Ventana","Ayuda"};
 		EsMx.stTxt(txts);
 
 		return EsMx;
+	}
+
+	public static Lcls EnUsLcls(){
+		Lcls EnUs=new Lcls();
+		EnUs.stLclNm("EnUs");
+		String[] txts={"JViNoM","Start!","New Project","Open project","Recent","Not a single recent project:( ( Why not start today :D?)","CUMunity","Manual","Source Code","New project .- ","Project's name:","Save on: ","Aspect ratio :","Create", "Cancel","Back","Scenes","No scenes!(Make one, pretty please?)","Create new scene","Recent scenes","No recent scenes","Scene's name :","File","Edit","Image","Layer","Select","Scripts","Configurations","Frame","Help"};
+		EnUs.stTxt(txts);
+
+		return EnUs;
+
 	}
 	/**
 	 *	Statics for imgs. JViNoM currently does not have sound. It supports it, but does not comes with samples or anything.
