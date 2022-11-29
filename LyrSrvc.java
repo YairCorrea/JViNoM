@@ -15,7 +15,7 @@ public class LyrSrvc{
 	private DAO<Lyr> dLyr;
 	private Lyr crrntLyr;
 	
-	LyrSrvc(DAO<Lyr> dLyr){
+	public LyrSrvc(DAO<Lyr> dLyr){
 		this.dLyr=dLyr;
 	}
 	/**

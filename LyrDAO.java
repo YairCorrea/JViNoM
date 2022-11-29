@@ -20,6 +20,7 @@ public class LyrDAO implements DAO<Lyr>{
 	private Scn ownr;
 	public LyrDAO(Scn ownr){
 		arryLyr=new ArrayList<Lyr>(Arrays.asList(ownr.gtLyrs()));
+		this.ownr=ownr;
 	}
 	/**
 	 *	Get a specific object of a kind.
@@ -44,7 +45,7 @@ public class LyrDAO implements DAO<Lyr>{
 		int tmStmp=arryLyr.size();
 		tSv.stId(tmStmp);
 		arryLyr.add(tSv);
-		ownr.stLyrs((Lyr[])arryLyr.toArray());
+		ownr.stLyrs((Lyr[])arryLyr.toArray(new Lyr[0]));
 		return tmStmp;
 	}
 	/**
