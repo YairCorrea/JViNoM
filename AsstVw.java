@@ -3,6 +3,8 @@ package JViNoM.Vw;
 import java.awt.*;
 import javax.swing.*;
 
+import JViNoM.Cntrllr.*;
+
 /**
  *	Allows to decorate a {@Wndw} with panels to populate her. This ones are not supposed to be independent frames, tough it can become one in execution
  *	time, by migrating to a {@IndWndw}.
@@ -10,19 +12,13 @@ import javax.swing.*;
  *	@Author Yair Correa
  *	@Version 2211
  */
-public abstract class Dcrtr implements Wndw{
-	private Wndw pdr;
-	private String ttl;
+public abstract class AsstVw extends Dcrtr{
+	private String ttl1;
+	private GSttIntrfc crrntStts;
 
-	public Dcrtr(String ttl,Wndw prd){
-		this.ttl=ttl;
-		this.pdr=prd;
-		try{
-			JPnlCrtl fthr=(JPnlCrtl)prd;
-			this.stStt(fthr.gtStt());
-		}catch(Exception e){
-			//Do nothing.
-		}
+	public AsstVw(String ttl,Wndw prd){
+		super(ttl,prd);
+		this.ttl1=ttl;
 	}	
 	/**
 	 *	Returns the view of this state/view.
@@ -37,26 +33,22 @@ public abstract class Dcrtr implements Wndw{
 	 *	@param GSttIntrfc The status to change to.
 	 *	@return void
 	 */
-	public abstract void stStt(GSttIntrfc nwStts);
+	public void stStt(GSttIntrfc nwStts){
+		this.crrntStts=nwStts;
+	}
 	/**
 	 *	Returns the current status of this frame.
 	 *	@return GSttIntrfc Said status.
 	 */
-	public abstract GSttIntrfc gtStt();
-	
-	
-	/**
-	 *	Returns the {@Wndw} that its currently decorating.
-	 *	@return Wndw Its parent.
-	 */	
-	public Wndw gtPdr(){
-		return pdr;
+	public GSttIntrfc gtStt(){
+		return crrntStts;
 	}
 	/**
 	 * 	Returns this frame's title.
 	 * 	@return String title.
 	 */
+	@Override
 	public String gtTtl(){
-		return ttl;
+		return super.gtTtl()+ttl1;
 	}
 }

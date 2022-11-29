@@ -57,7 +57,9 @@ public class PrjctDAO implements DAO<Prjct>{
 		tmp.stNm((String)prmtrs[1]);
 		tmp.stAspctRltn((int[])prmtrs[2]);
 		tmp.stScns((Scn[])prmtrs[3]);
+		arryPrjct.set(bngEdtd,tmp);
 		flWrtr.sv("Prjct",arryPrjct);
+		this.svPrjct(tmp.gtLctn(),tmp);
 		if(!prvsLctn.equals(tmp.gtLctn())) flWrtr.dltPrjct(prvsLctn);
 	}
 	/**
@@ -83,9 +85,8 @@ public class PrjctDAO implements DAO<Prjct>{
 	 * 	Reads a previously unknow project.
 	 * 	@param String location of the project.
 	 */
-	public ArrayList<Prjct> rdPrjct(String lctn){
+	public int rdPrjct(String lctn){
 		Prjct tmp=flWrtr.rdPrjct(lctn);
-		this.sv(tmp);
-		return arryPrjct;
+		return this.sv(tmp);
 	}
 }

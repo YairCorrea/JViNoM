@@ -77,12 +77,15 @@ public class JViNoMdt{
 	 *	29.-Settings
 	 *	30.-Window
 	 *	31.- Help
-	 *
+	 *	32.-Load a scene first.
+	 *	33.-Select a element to see it here.
+	 *	34.- Layers
+	 *	35.- Asset view
 	 */
 	public static Lcls EsMxLcls(){
 		Lcls EsMx=new Lcls();
 		EsMx.stLclNm("EsMx");
-		String[] txts={"JViNoM","Inicio!","Nuevo Proyecto","Abrir proyecto","Reciente","No hay proyectos recientes :( (Porque no empezar uno :D?)","COOMunidad","Manual","Codigo fuente","Creando nuevo proyecto ","Nombre del proyecto:","Guardar en: "," Relacion de aspecto :"," Crear", "Cancelar","Regresar","Escenas","No hay escenas!(Porque no hacer una?)","Crear nueva escena","Escenas recientes","No hay escenas recientes","Nombre de la escena","Archivo","Editar","Imagen","Capa","Seleccion","Scripts","Configuraciones","Ventana","Ayuda"};
+		String[] txts={"JViNoM","Inicio!","Nuevo Proyecto","Abrir proyecto","Reciente","No hay proyectos recientes :( (Porque no empezar uno :D?)","COOMunidad","Manual","Codigo fuente","Creando nuevo proyecto ","Nombre del proyecto:","Guardar en: "," Relacion de aspecto :"," Crear", "Cancelar","Regresar","Escenas","No hay escenas!(Porque no hacer una?)","Crear nueva escena","Escenas recientes","No hay escenas recientes","Nombre de la escena","Archivo","Editar","Imagen","Capa","Seleccion","Scripts","Configuraciones","Ventana","Ayuda","Carga una escena primero","Selecciona algun elemento para verlo aqui","Capas","Observador del asset"};
 		EsMx.stTxt(txts);
 
 		return EsMx;
@@ -91,7 +94,7 @@ public class JViNoMdt{
 	public static Lcls EnUsLcls(){
 		Lcls EnUs=new Lcls();
 		EnUs.stLclNm("EnUs");
-		String[] txts={"JViNoM","Start!","New Project","Open project","Recent","Not a single recent project:( ( Why not start today :D?)","CUMunity","Manual","Source Code","New project .- ","Project's name:","Save on: ","Aspect ratio :","Create", "Cancel","Back","Scenes","No scenes!(Make one, pretty please?)","Create new scene","Recent scenes","No recent scenes","Scene's name :","File","Edit","Image","Layer","Select","Scripts","Configurations","Frame","Help"};
+		String[] txts={"JViNoM","Start!","New Project","Open project","Recent","Not a single recent project:( ( Why not start today :D?)","CUMunity","Manual","Source Code","New project .- ","Project's name:","Save on: ","Aspect ratio :","Create", "Cancel","Back","Scenes","No scenes!(Make one, pretty please?)","Create new scene","Recent scenes","No recent scenes","Scene's name :","File","Edit","Image","Layer","Select","Scripts","Configurations","Frame","Help","Load a scene first","Select an element to see it here","Layers","Asset view"};
 		EnUs.stTxt(txts);
 
 		return EnUs;

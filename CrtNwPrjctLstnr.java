@@ -3,6 +3,7 @@ package JViNoM.Cntrllr;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.*;
 
 import JViNoM.Cntrllr.TxtFtchr;
 import JViNoM.Vw.*;
@@ -59,5 +60,15 @@ public class CrtNwPrjctLstnr implements ActionListener{
 			srcF.cncl();
 			return;
 		}
+		
+		JFileChooser flChsr=new JFileChooser();
+		JFrame flChsrFr=new JFrame();
+		JPnlCrtl cntxt=srcF.gtCntxt();
+		int i=flChsr.showOpenDialog(flChsrFr);
+		if(i==JFileChooser.APPROVE_OPTION){
+			File f=flChsr.getSelectedFile();
+			String lctn=f.getPath();
+			srcF.svTT.setText(lctn);
+		}			
 	}
 }

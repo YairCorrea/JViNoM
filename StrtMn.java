@@ -12,6 +12,7 @@ import JViNoM.Cntrllr.*;
  */
 public class StrtMn extends GSttIntrfc{
 	private JPanel rtrnbl;
+	public JComponent ntRcnt;
 	private TxtFtchr txtFtchr=TxtFtchr.gtInstnc();
 	private SttcFtchr sttcFtchr=new SttcFtchr();
 	//State methods
@@ -50,8 +51,8 @@ public class StrtMn extends GSttIntrfc{
 			JLabel nwPrjct=new JLabel(txtFtchr.gtTxt(2));
 			JLabel opnFl=new JLabel(txtFtchr.gtTxt(3));
 
-			JLabel rcnt=new JLabel(txtFtchr.gtTxt(4));	
-			JLabel ntRcnt=new JLabel(txtFtchr.gtTxt(5));
+			JLabel rcnt=new JLabel(txtFtchr.gtTxt(4));
+			ntRcnt=(ntRcnt==null)?new JLabel(txtFtchr.gtTxt(5)):ntRcnt;
 
 			JLabel cmmnt=new JLabel(txtFtchr.gtTxt(6));
 			JLabel mnl=new JLabel(txtFtchr.gtTxt(7));
@@ -95,8 +96,6 @@ public class StrtMn extends GSttIntrfc{
 			lyt.putConstraint(SpringLayout.NORTH,srcCd,6,SpringLayout.SOUTH,mnl);
 			lyt.putConstraint(SpringLayout.NORTH,jvmn,6,SpringLayout.SOUTH,srcCd);
 			lyt.putConstraint(SpringLayout.WEST,jvmn,6,SpringLayout.HORIZONTAL_CENTER,rtrnbl);
-
-
 		}
 		return rtrnbl;
 	}

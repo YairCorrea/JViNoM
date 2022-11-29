@@ -17,6 +17,7 @@ public class MnWndw implements Wndw,Obsrvr{
 	private final SttcFtchr sttcFtchr;
 	private TxtFtchr txtFtchr;
 	private JFrame mnWndw;
+	private JPnlCrtl main;
 	private int wdth,hght;
 	/**
 	 *	Returns the view of this state/view.
@@ -43,8 +44,22 @@ public class MnWndw implements Wndw,Obsrvr{
 		return null;
 	}
 
-	public void updt(JPanel nw){
-		mnWndw.setContentPane(nw);
+	public void updt(JPanel cntr){	
+		JPanel lyrLstVw=(new LyrLstVw(ttl,main)).obtnrCrtl();
+		JPanel snglAsstVw=(new SnglAsstVw(ttl,main)).obtnrCrtl();
+		cntr.add(lyrLstVw);
+		cntr.add(snglAsstVw);
+		
+		SpringLayout lyt=(SpringLayout)cntr.getLayout();
+
+		lyt.putConstraint(SpringLayout.EAST,lyrLstVw,6,SpringLayout.EAST,cntr);
+		lyt.putConstraint(SpringLayout.NORTH,snglAsstVw,6,SpringLayout.SOUTH,lyrLstVw);
+		lyt.putConstraint(SpringLayout.EAST,snglAsstVw,6,SpringLayout.EAST,cntr);
+
+		cntr.setLayout(lyt);
+		
+		mnWndw.setContentPane(cntr);
+		mnWndw.repaint();
 	}
 	/**
 	 * 	Returns this frame's title.
@@ -83,11 +98,27 @@ public class MnWndw implements Wndw,Obsrvr{
 		MnBr mnBr=new MnBr();
 
 		mnWndw.setJMenuBar(mnBr.gtMb());
-		
-		JPnlCrtl main=new JPnlCrtl(ttl,wdth,hght,this);
+			
+		main=new JPnlCrtl(ttl,wdth,hght,this);
 		main.attch(this);
-		mnWndw.setContentPane(main.obtnrCrtl());
 
+		JPanel cntr=main.obtnrCrtl();
+
+		JPanel lyrLstVw=(new LyrLstVw(ttl,main)).obtnrCrtl();
+		JPanel snglAsstVw=(new SnglAsstVw(ttl,main)).obtnrCrtl();
+		cntr.add(lyrLstVw);
+		cntr.add(snglAsstVw);
+		
+		SpringLayout lyt=(SpringLayout)cntr.getLayout();
+
+		lyt.putConstraint(SpringLayout.EAST,lyrLstVw,6,SpringLayout.EAST,cntr);
+		lyt.putConstraint(SpringLayout.NORTH,snglAsstVw,6,SpringLayout.SOUTH,lyrLstVw);
+		lyt.putConstraint(SpringLayout.EAST,snglAsstVw,6,SpringLayout.EAST,cntr);
+
+		cntr.setLayout(lyt);
+		
+		mnWndw.setContentPane(cntr);
+		
 		mnWndw.setVisible(true);
 	}
 }

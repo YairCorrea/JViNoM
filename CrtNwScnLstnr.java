@@ -36,9 +36,14 @@ public class CrtNwScnLstnr implements ActionListener{
 			scn.stNm(nmt);
 			scn.stLyrs(new Lyr[0]);
 			scn.stPrjctId(srcF.gtPrjctId());
+			
+			//Registers new scene.
+			PrjctDAO prjctDAO=new PrjctDAO();
+			ScnSrvc scnSrvc=new ScnSrvc(new ScnDAO(prjctDAO.gt(srcF.gtPrjctId())));
+			scnSrvc.stScn(scn);
+			int scnId=scnSrvc.save();
 
 			//Fetches project which owns it and updates it.
-			PrjctDAO prjctDAO=new PrjctDAO();
 			PrjctSrvc prjcSrvc=new PrjctSrvc(prjctDAO);
 			Prjct crrnt=prjctDAO.gt(srcF.gtPrjctId());
 			Scn[] scns=crrnt.gtScns();
@@ -53,15 +58,11 @@ public class CrtNwScnLstnr implements ActionListener{
 			nwDt[2]=crrnt.gtAspctRltn();
 			nwDt[3]=nwScns;
 			prjctDAO.updt(srcF.gtPrjctId(),nwDt);
-			
-			//Registers new scene.
-			ScnSrvc scnSrvc=new ScnSrvc(new ScnDAO(prjctDAO.gt(srcF.gtPrjctId())));
-			scnSrvc.stScn(scn);
-			int scnId=scnSrvc.save();
-
+						
 			//Enters into the editor
 			Edtr edtr=(Edtr)cntxt.gtEdtr();
 			edtr.stScn(scnId);
+			edtr.stPrjct(srcF.gtPrjctId());
 			
 			cntxt.stStt(cntxt.gtEdtr());
 			srcF.crtNwScn();
