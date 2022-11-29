@@ -20,6 +20,7 @@ public class Edtr extends GSttIntrfc{
 	private ArrayList<JComponent[]> lyrs=new ArrayList<JComponent[]>();
 	private int prjctId,scnId;
 	private JComponent mvn;
+	private JLabel ext;
 	public Edtr(JPnlCrtl cntxt,int a,int b){
 		super(cntxt,a,b);
 		prjctId=-1;
@@ -37,7 +38,9 @@ public class Edtr extends GSttIntrfc{
 		//NA
 	}
 	public void cncl(){
-		//NA
+		JPnlCrtl cntxt=super.gtCntxt();
+		cntxt.stStt(cntxt.gtStrtMn());
+		cntxt.ntfy();
 	}
 	public void stPrjct(int prjctId){
 		this.prjctId=prjctId;
@@ -81,8 +84,12 @@ public class Edtr extends GSttIntrfc{
 			SpringLayout lyt=new SpringLayout();
 			rtrnbl=new JPanel(lyt);
 			edtrLstnr=new EdtrLsntr(this);
+			ext=new JLabel("X");
+			ext.addMouseListener(edtrLstnr);
 			rtrnbl.setSize(wdth,hght);
 		}
+		rtrnbl.removeAll();
+		rtrnbl.add(ext);
 		edtrLstnr.igntCnvs();
 		return rtrnbl;
 	}

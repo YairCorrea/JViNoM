@@ -85,7 +85,6 @@ public class PrjctScnsLstLstnr implements MouseListener{
 			cntxt.ntfy();
 			return;
 		}catch(Exception ex){
-			ex.printStackTrace();
 			srcF.cncl();
 		}
 	}

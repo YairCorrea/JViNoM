@@ -57,7 +57,7 @@ public class ScnDAO implements DAO<Scn>{
 		tmp.stNm((String)prmtrs[0]);
 		tmp.stPrjctId((int)prmtrs[1]);
 		tmp.stLyrs((Lyr[])prmtrs[2]);
-		ownr.stScns((Scn[])arryScn.toArray());
+		ownr.stScns((Scn[])arryScn.toArray(new Scn[0]));
 	}
 	/**
 	 *	Deletes a specific object of a kind. 
