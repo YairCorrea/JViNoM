@@ -15,6 +15,8 @@ public class CrtNwScn extends GSttIntrfc{
 	private JLabel nm;
 	private JPanel rtrnbl;
 
+	private int prjctId;
+
 	public JTextArea nmT;
 
 	private JButton crt;
@@ -22,6 +24,7 @@ public class CrtNwScn extends GSttIntrfc{
 
 	private TxtFtchr txtFtchr=TxtFtchr.gtInstnc();
 	private SttcFtchr sttcFtchr=new SttcFtchr();
+
 	public CrtNwScn(JPnlCrtl cntxt,int a, int b){
 		super(cntxt,a,b);
 	}
@@ -37,6 +40,12 @@ public class CrtNwScn extends GSttIntrfc{
 	}
 	public void cncl(){
 		scnWndw.setVisible(false);
+	}
+	public void stPrjct(int prjctId){
+		this.prjctId=prjctId;
+	}
+	public int gtPrjctId(){
+		return prjctId;
 	}
 
 	/**

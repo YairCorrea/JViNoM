@@ -60,37 +60,60 @@ public class CrtNwPrjct extends GSttIntrfc{
 			rtrnbl=new JPanel();
 			rtrnbl.setSize((int)wdth/2,(int)hght/2);
 
+			SpringLayout lyt=new SpringLayout();
+			rtrnbl.setLayout(lyt);
+
 			CrtNwPrjctLstnr crtNwPrjctLstnr=new CrtNwPrjctLstnr(this);
 			nm=new JLabel(txtFtchr.gtTxt(10));
 			svT=new JLabel(txtFtchr.gtTxt(11));
 			dfltAspctRt=new JLabel(txtFtchr.gtTxt(12));
 
-			nmT=new JTextArea(2,20);
-			svTT=new JTextArea(2,20);
-			wdt=new JTextArea(2,4);
-			hgh=new JTextArea(2,4);
+			nmT=new JTextArea(1,20);
+			svTT=new JTextArea(1,20);
+			wdt=new JTextArea(1,4);
+			hgh=new JTextArea(1,4);
 
 			chsFl=new JButton(sttcFtchr.gtSttc(0));
 			crt=new JButton(txtFtchr.gtTxt(13));
 			cncl=new JButton(txtFtchr.gtTxt(14));
 
+			
 			chsFl.addActionListener(crtNwPrjctLstnr);
 			crt.addActionListener(crtNwPrjctLstnr);
 			cncl.addActionListener(crtNwPrjctLstnr);
-			
-			rtrnbl.add(nm);
-			rtrnbl.add(nmT);
+			JPanel sb1=new JPanel();
+			JPanel sb2=new JPanel();
+			JPanel sb3=new JPanel();
+			JPanel sb4=new JPanel();
 
-			rtrnbl.add(svT);
-			rtrnbl.add(svTT);
-			rtrnbl.add(chsFl);
+			sb1.add(nm);
+			sb1.add(nmT);
 
-			rtrnbl.add(dfltAspctRt);
-			rtrnbl.add(wdt);			
-			rtrnbl.add(hgh);
+			sb2.add(svT);
+			sb2.add(svTT);
+			sb2.add(chsFl);
 
-			rtrnbl.add(crt);
-			rtrnbl.add(cncl);
+			sb3.add(dfltAspctRt);
+			sb3.add(wdt);			
+			sb3.add(hgh);
+
+			sb4.add(crt);
+			sb4.add(cncl);
+
+			rtrnbl.add(sb1);
+			rtrnbl.add(sb2);
+			rtrnbl.add(sb3);
+			rtrnbl.add(sb4);
+
+			lyt.putConstraint(SpringLayout.WEST,sb1,6,SpringLayout.WEST,rtrnbl);
+			lyt.putConstraint(SpringLayout.WEST,sb2,6,SpringLayout.WEST,rtrnbl);
+			lyt.putConstraint(SpringLayout.WEST,sb3,6,SpringLayout.WEST,rtrnbl);
+			lyt.putConstraint(SpringLayout.WEST,sb4,6,SpringLayout.WEST,rtrnbl);
+
+			lyt.putConstraint(SpringLayout.NORTH,sb2,6,SpringLayout.SOUTH,sb1);
+			lyt.putConstraint(SpringLayout.NORTH,sb3,6,SpringLayout.SOUTH,sb2);
+			lyt.putConstraint(SpringLayout.NORTH,sb4,6,SpringLayout.SOUTH,sb3);
+
 		}
 		prjctWndw.setContentPane(rtrnbl);
 		prjctWndw.setVisible(true);

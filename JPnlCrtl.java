@@ -60,6 +60,7 @@ public class JPnlCrtl extends Dcrtr implements Sbjct{
 	 */
 	public void stStt(GSttIntrfc nwStts){
 		this.actl=nwStts;
+		ntfy();
 	}
 	/**
 	 *	Returns the current status of this frame.

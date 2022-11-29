@@ -31,6 +31,39 @@ public class CrtNwScnLstnr implements ActionListener{
 
 			String nmt=srcF.nmT.getText();
 
+			//Creates scene.
+			Scn scn=new Scn();
+			scn.stNm(nmt);
+			scn.stLyrs(new Lyr[0]);
+			scn.stPrjctId(srcF.gtPrjctId());
+			
+			//Registers new scene.
+			PrjctDAO prjctDAO=new PrjctDAO();
+			ScnSrvc scnSrvc=new ScnSrvc(new ScnDAO(prjctDAO.gt(srcF.gtPrjctId())));
+			scnSrvc.stScn(scn);
+			int scnId=scnSrvc.save();
+
+			//Fetches project which owns it and updates it.
+			PrjctSrvc prjcSrvc=new PrjctSrvc(prjctDAO);
+			Prjct crrnt=prjctDAO.gt(srcF.gtPrjctId());
+			Scn[] scns=crrnt.gtScns();
+			Scn[] nwScns=new Scn[scns.length+1];
+			for(int i=0;i<scns.length;i++){
+				nwScns[i]=scns[i];
+			}
+			nwScns[scns.length]=scn;
+			Object[] nwDt=new Object[4];
+			nwDt[0]=crrnt.gtLctn();
+			nwDt[1]=crrnt.gtNm();
+			nwDt[2]=crrnt.gtAspctRltn();
+			nwDt[3]=nwScns;
+			prjctDAO.updt(srcF.gtPrjctId(),nwDt);
+						
+			//Enters into the editor
+			Edtr edtr=(Edtr)cntxt.gtEdtr();
+			edtr.stScn(scnId);
+			edtr.stPrjct(srcF.gtPrjctId());
+			
 			cntxt.stStt(cntxt.gtEdtr());
 			srcF.crtNwScn();
 			cntxt.ntfy();

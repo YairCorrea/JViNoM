@@ -15,7 +15,7 @@ public class ScnSrvc{
 	private DAO<Scn> dScn;
 	private Scn crrntScn;
 	
-	ScnSrvc(DAO<Scn> dScn){
+	public ScnSrvc(DAO<Scn> dScn){
 		this.dScn=dScn;
 	}
 	/**

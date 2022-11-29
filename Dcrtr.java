@@ -17,6 +17,12 @@ public abstract class Dcrtr implements Wndw{
 	public Dcrtr(String ttl,Wndw prd){
 		this.ttl=ttl;
 		this.pdr=prd;
+		try{
+			JPnlCrtl fthr=(JPnlCrtl)prd;
+			this.stStt(fthr.gtStt());
+		}catch(Exception e){
+			//Do nothing.
+		}
 	}	
 	/**
 	 *	Returns the view of this state/view.

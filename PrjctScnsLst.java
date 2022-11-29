@@ -12,17 +12,23 @@ import JViNoM.Cntrllr.*;
  */
 public class PrjctScnsLst extends GSttIntrfc{
 	private JPanel rtrnbl;
+	public JComponent ntRcntScns;
 	private TxtFtchr txtFtchr=TxtFtchr.gtInstnc();
 	private SttcFtchr sttcFtchr=new SttcFtchr();
+	private int prjctId;
 	public PrjctScnsLst(JPnlCrtl cntxt,int a,int b){
 		super(cntxt,a,b);
+		prjctId=-1;
 	}
 	//State methods
 	public void crtNwPrjct(){
 		super.gtCntxt().gtCrtNwPrjct().gtVw(super.wdth,super.hght);
 	}
 	public void crtNwScn(){
-		super.gtCntxt().gtCrtNwScn().gtVw(super.wdth,super.hght);
+		CrtNwScn crtNwScn=(CrtNwScn)(super.gtCntxt().gtCrtNwScn());
+		crtNwScn.stPrjct(prjctId);
+		crtNwScn.gtVw(super.wdth,super.hght);
+
 	}
 	public void opnFl(){
 		//openFile.
@@ -35,6 +41,13 @@ public class PrjctScnsLst extends GSttIntrfc{
 		tmp.ntfy();
 	}
 
+	public void stPrjct(int prjctId){
+		this.prjctId=prjctId;
+	}
+	public int gtPrjctId(){
+		return prjctId;
+	}
+
 	/**
 	 *	Get the view of THIS state.
 	 *	
@@ -42,8 +55,8 @@ public class PrjctScnsLst extends GSttIntrfc{
 	 */
 	public JPanel gtVw(int wdth,int hght){
 		if(rtrnbl==null){
-			rtrnbl=new JPanel();
-
+			SpringLayout lyt=new SpringLayout();
+			rtrnbl=new JPanel(lyt);
 			rtrnbl.setSize(wdth,hght);
 			
 			MouseListener lstnr=new PrjctScnsLstLstnr(this);
@@ -51,12 +64,11 @@ public class PrjctScnsLst extends GSttIntrfc{
 			JButton rtrn=new JButton(txtFtchr.gtTxt(15));
 
 			JLabel scns=new JLabel(txtFtchr.gtTxt(16));
-			JLabel nScns=new JLabel(txtFtchr.gtTxt(17));
+			JComponent nScns=(ntRcntScns==null)?new JLabel(txtFtchr.gtTxt(17)):new JLabel(txtFtchr.gtTxt(16));
 			JLabel crtNwScn=new JLabel(txtFtchr.gtTxt(18));
 			JLabel rcntScns=new JLabel(txtFtchr.gtTxt(19));
-			JLabel nRcntScns=new JLabel(txtFtchr.gtTxt(20));
+			ntRcntScns=(ntRcntScns==null)?new JLabel(txtFtchr.gtTxt(20)):ntRcntScns;
 
-			nScns.addMouseListener(lstnr);
 			crtNwScn.addMouseListener(lstnr);
 			rtrn.addMouseListener(lstnr);
 
@@ -65,7 +77,17 @@ public class PrjctScnsLst extends GSttIntrfc{
 			rtrnbl.add(nScns);
 			rtrnbl.add(crtNwScn);
 			rtrnbl.add(rcntScns);
-			rtrnbl.add(nRcntScns);
+			rtrnbl.add(ntRcntScns);
+
+			lyt.putConstraint(SpringLayout.WEST,rtrn,6,SpringLayout.WEST,rtrnbl);
+			lyt.putConstraint(SpringLayout.NORTH,rtrn,6,SpringLayout.NORTH,rtrnbl);
+
+			lyt.putConstraint(SpringLayout.NORTH,scns,6,SpringLayout.SOUTH,rtrn);
+			lyt.putConstraint(SpringLayout.NORTH,nScns,6,SpringLayout.SOUTH,scns);
+			lyt.putConstraint(SpringLayout.NORTH,crtNwScn,6,SpringLayout.SOUTH,nScns);
+			lyt.putConstraint(SpringLayout.NORTH,rcntScns,6,SpringLayout.SOUTH,crtNwScn);
+			lyt.putConstraint(SpringLayout.NORTH,ntRcntScns,6,SpringLayout.SOUTH,rcntScns);
+			lyt.putConstraint(SpringLayout.WEST,scns,6,SpringLayout.EAST,rtrn);
 		}
 		return rtrnbl;
 	}
