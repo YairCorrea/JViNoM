@@ -47,6 +47,7 @@ public class PrjctScnsLstLstnr implements MouseListener{
 			hdSmntng=true;
 		}
 		if(hdSmntng) srcF.ntRcntScns=rcntPrjcts;
+		if(!hdSmntng) srcF.ntRcntScns=null;
 	}
 	public void mouseEntered(MouseEvent e){
 		return;
@@ -72,11 +73,15 @@ public class PrjctScnsLstLstnr implements MouseListener{
 				return;
 			}
 			int scnId=Integer.parseInt(src.getText());
+			entrScn(scnId);
 
-			//Fetches project which owns it and updates it.
-			JPnlCrtl cntxt=srcF.gtCntxt();
-
+		}catch(Exception ex){
+			srcF.cncl();
+		}
+	}
+	public void entrScn(int scnId){
 			//Enters into the editor
+			JPnlCrtl cntxt=srcF.gtCntxt();
 			Edtr edtr=(Edtr)cntxt.gtEdtr();
 			edtr.stScn(scnId);
 			edtr.stPrjct(srcF.gtPrjctId());
@@ -84,8 +89,5 @@ public class PrjctScnsLstLstnr implements MouseListener{
 			cntxt.stStt(cntxt.gtEdtr());
 			cntxt.ntfy();
 			return;
-		}catch(Exception ex){
-			srcF.cncl();
-		}
 	}
 }

@@ -67,20 +67,7 @@ public class StrMnLstnr implements MouseListener{
 			return;
 		}
 		if(src.getText().equals(txtFtchr.gtTxt(3))){
-			JFileChooser flChsr=new JFileChooser();
-			JFrame flChsrFr=new JFrame();
-			JPnlCrtl cntxt=srcF.gtCntxt();
-			int i=flChsr.showOpenDialog(flChsrFr);
-			if(i==JFileChooser.APPROVE_OPTION){
-				File f=flChsr.getSelectedFile();
-				String lctn=f.getPath();
-				PrjctDAO prjctDAO=new PrjctDAO();
-				int prjctId=prjctDAO.rdPrjct(lctn);
-				PrjctScnsLst prjctLst=(PrjctScnsLst)cntxt.gtPrjctScnsLst();
-				prjctLst.stPrjct(prjctId);
-				cntxt.stStt(cntxt.gtPrjctScnsLst());
-				cntxt.ntfy();
-			}
+			chsScn();
 			return;
 		}
 		if(src.getText().equals(txtFtchr.gtTxt(5))){
@@ -118,13 +105,30 @@ public class StrMnLstnr implements MouseListener{
 
 		//If nothing seems to catch, then its a dynamic project.
 		
+		entrScn(src.getText());
+	}
+	public void chsScn(){
+			JFileChooser flChsr=new JFileChooser();
+			JFrame flChsrFr=new JFrame();
+			JPnlCrtl cntxt=srcF.gtCntxt();
+			int i=flChsr.showOpenDialog(flChsrFr);
+			if(i==JFileChooser.APPROVE_OPTION){
+				File f=flChsr.getSelectedFile();
+				String lctn=f.getPath();
+				entrScn(lctn);
+			}
+	}
+
+	public void entrScn(String scnId){
 		JPnlCrtl cntxt=srcF.gtCntxt();
 
 		PrjctDAO prjctDAO=new PrjctDAO();
-		int prjctId=prjctDAO.rdPrjct(src.getText());
+		int prjctId=prjctDAO.rdPrjct(scnId);
 		PrjctScnsLst prjctLst=(PrjctScnsLst)cntxt.gtPrjctScnsLst();
 		prjctLst.stPrjct(prjctId);
 		cntxt.stStt(cntxt.gtPrjctScnsLst());
 		cntxt.ntfy();
+			return;
 	}
+
 }

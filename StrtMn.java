@@ -4,6 +4,8 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+import java.io.*;
+
 import JViNoM.Cntrllr.*;
 /**
  * 	Start menu view.
@@ -15,6 +17,7 @@ public class StrtMn extends GSttIntrfc{
 	public JComponent ntRcnt;
 	private TxtFtchr txtFtchr=TxtFtchr.gtInstnc();
 	private SttcFtchr sttcFtchr=new SttcFtchr();
+	private StrMnLstnr lstnr;
 	//State methods
 	public StrtMn(JPnlCrtl cntx,int w,int h){
 		super(cntx,w,h);
@@ -26,7 +29,7 @@ public class StrtMn extends GSttIntrfc{
 		System.out.println("Not available");
 	}
 	public void opnFl(){
-		//OpenFile
+		lstnr.chsScn();
 	}
 	public void cncl(){
 		//None.
@@ -38,11 +41,10 @@ public class StrtMn extends GSttIntrfc{
 	 *	@return JPanel The view in JPanel so you can put it wherever its needed.
 	 */
 	public JPanel gtVw(int wdth,int hght){
-		if(rtrnbl==null){
+		lstnr=new StrMnLstnr(this);
+			ntRcnt=(ntRcnt==null)?new JLabel(txtFtchr.gtTxt(5)):ntRcnt;
 			rtrnbl=new JPanel();
-
 			rtrnbl.setSize(wdth,hght);
-			MouseListener lstnr=new StrMnLstnr(this);
 
 			SpringLayout lyt=new SpringLayout();
 			rtrnbl.setLayout(lyt);
@@ -52,7 +54,6 @@ public class StrtMn extends GSttIntrfc{
 			JLabel opnFl=new JLabel(txtFtchr.gtTxt(3));
 
 			JLabel rcnt=new JLabel(txtFtchr.gtTxt(4));
-			ntRcnt=(ntRcnt==null)?new JLabel(txtFtchr.gtTxt(5)):ntRcnt;
 
 			JLabel cmmnt=new JLabel(txtFtchr.gtTxt(6));
 			JLabel mnl=new JLabel(txtFtchr.gtTxt(7));
@@ -67,7 +68,7 @@ public class StrtMn extends GSttIntrfc{
 			cmmnt.addMouseListener(lstnr);
 			mnl.addMouseListener(lstnr);
 			srcCd.addMouseListener(lstnr);
-			JLabel jvmn=new JLabel(sttcFtchr.gtSttc(0));
+			JLabel jvmn=new JLabel(sttcFtchr.gtSttc(1));
 
 			rtrnbl.add(strt);
 			rtrnbl.add(nwPrjct);
@@ -96,7 +97,6 @@ public class StrtMn extends GSttIntrfc{
 			lyt.putConstraint(SpringLayout.NORTH,srcCd,6,SpringLayout.SOUTH,mnl);
 			lyt.putConstraint(SpringLayout.NORTH,jvmn,6,SpringLayout.SOUTH,srcCd);
 			lyt.putConstraint(SpringLayout.WEST,jvmn,6,SpringLayout.HORIZONTAL_CENTER,rtrnbl);
-		}
 		return rtrnbl;
 	}
 }
