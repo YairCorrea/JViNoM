@@ -30,8 +30,11 @@ public class JViNoMdt{
 		flWrtr.sv("Sttcs",new ArrayList<Sttc>());
 		SttcDAO sttcDAO=new SttcDAO();
 		SttcSrvc sttcSrvc=new SttcSrvc(sttcDAO);
-		sttcSrvc.stSttc(imgs());
-		sttcSrvc.save();
+		Sttc[] mgs=imgs();
+		for(Sttc sttc:mgs){
+			sttcSrvc.stSttc(sttc);
+			sttcSrvc.save();
+		}
 
 		flWrtr.sv("Cnfgs",new ArrayList<Cnfgs>());
 		CnfgsDAO cnfgsDAO=new CnfgsDAO();
@@ -81,20 +84,88 @@ public class JViNoMdt{
 	 *	33.-Select a element to see it here.
 	 *	34.- Layers
 	 *	35.- Asset view
+	 *	36.- New Prject
+	 *	37.-Save
+	 *	38.- Save as
+	 *	39.-Open scene
+	 *	40.- Mirror horizontally
+	 *	41.- Mirror vertically
+	 *	42.- Cut layer
+	 *	43.- Paste layer
+	 *	44.-New Layer
+	 *	45.- Create new script
+	 *	46.- Edit script
+	 *	47.- Language settings.
+	 *	48.- New window
+	 *	49.- New view
+	 *	50.- Import image
 	 */
 	public static Lcls EsMxLcls(){
 		Lcls EsMx=new Lcls();
 		EsMx.stLclNm("EsMx");
-		String[] txts={"JViNoM","Inicio!","Nuevo Proyecto","Abrir proyecto","Reciente","No hay proyectos recientes :( (Porque no empezar uno :D?)","COOMunidad","Manual","Codigo fuente","Creando nuevo proyecto ","Nombre del proyecto:","Guardar en: "," Relacion de aspecto :"," Crear", "Cancelar","Regresar","Escenas","No hay escenas!(Porque no hacer una?)","Crear nueva escena","Escenas recientes","No hay escenas recientes","Nombre de la escena","Archivo","Editar","Imagen","Capa","Seleccion","Scripts","Configuraciones","Ventana","Ayuda","Carga una escena primero","Selecciona algun elemento para verlo aqui","Capas","Observador del asset"};
+		String[] txts={"JViNoM","Inicio!","Nuevo Proyecto","Abrir proyecto","Reciente","No hay proyectos recientes :( (Porque no empezar uno :D?)","COOMunidad","Manual","Codigo fuente","Creando nuevo proyecto ","Nombre del proyecto:","Guardar en: "," Relacion de aspecto :"," Crear", "Cancelar","Regresar","Escenas","No hay escenas!(Porque no hacer una?)","Crear nueva escena","Escenas recientes","No hay escenas recientes","Nombre de la escena","Archivo","Editar","Imagen","Capa","Seleccion","Scripts","Configuraciones","Ventana","Ayuda","Carga una escena primero","Selecciona algun elemento para verlo aqui","Capas","Observador del asset","Nuevo proyecto","Salvar","Salvar como","Abrir escena","Voltear horizontalmente","Voltear verticalmente","Cortar capa","Pegar capa","Nueva capa","Crear script","Abrir script","Configuracion de idioma","Nueva ventana","Nueva vista","Importar imagen"};
 		EsMx.stTxt(txts);
 
 		return EsMx;
 	}
+	/**
+	 *	Locales order goes like:
+	 *	1.-JViNoM :D
+	 *	2.-Start greeting
+	 *	3.- New project text
+	 *	4.- Open project 
+	 *	5.- Recent
+	 *	6.- No recent projects message
+	 *	7.- Hehehe... COOMunitty
+	 *	8.-Manual
+	 *	9.- Source code
+	 *	10.- Creating new project
+	 *	11.-name of the project
+	 *	12.- Where to save?
+	 *	13.- Which aspect ratio?
+	 *	14.-Create!
+	 *	15.- Cancel :(
+	 *	16.- Return
+	 *	17.- Scenes
+	 *	18.-Not new scenes
+	 *	19.-Create new scene
+	 *	20.-Recent Scenes
+	 *	21.-Not recent scenes
+	 *	22.-Scene name
+	 *	23.- File
+	 *	24.- Edit
+	 *	25.- Image
+	 *	26.- Layer
+	 *	27.- Select
+	 *	28.-Scripts
+	 *	29.-Settings
+	 *	30.-Window
+	 *	31.- Help
+	 *	32.-Load a scene first.
+	 *	33.-Select a element to see it here.
+	 *	34.- Layers
+	 *	35.- Asset view
+	 *	36.- New Prject
+	 *	37.-Save
+	 *	38.- Save as
+	 *	39.-Open scene
+	 *	40.- Mirror horizontally
+	 *	41.- Mirror vertically
+	 *	42.- Cut layer
+	 *	43.- Paste layer
+	 *	44.-New Layer
+	 *	45.- Create new script
+	 *	46.- Edit script
+	 *	47.- Language settings.
+	 *	48.- New window
+	 *	49.- New view
+	 *	50.- Import image.
+	 */
 
 	public static Lcls EnUsLcls(){
 		Lcls EnUs=new Lcls();
 		EnUs.stLclNm("EnUs");
-		String[] txts={"JViNoM","Start!","New Project","Open project","Recent","Not a single recent project:( ( Why not start today :D?)","CUMunity","Manual","Source Code","New project .- ","Project's name:","Save on: ","Aspect ratio :","Create", "Cancel","Back","Scenes","No scenes!(Make one, pretty please?)","Create new scene","Recent scenes","No recent scenes","Scene's name :","File","Edit","Image","Layer","Select","Scripts","Configurations","Frame","Help","Load a scene first","Select an element to see it here","Layers","Asset view"};
+		String[] txts={"JViNoM","Start!","New Project","Open project","Recent","Not a single recent project:( ( Why not start today :D?)","CUMunity","Manual","Source Code","New project .- ","Project's name:","Save on: ","Aspect ratio :","Create", "Cancel","Back","Scenes","No scenes!(Make one, pretty please?)","Create new scene","Recent scenes","No recent scenes","Scene's name :","File","Edit","Image","Layer","Select","Scripts","Configurations","Frame","Help","Load a scene first","Select an element to see it here","Layers","Asset view","New Project","Save","Save as","Open scene","Mirror horizontally","Mirror vertically","Cut layer","Paste layer","New layer","Create script","Edit script","Language settings","New window","New view","Import image"};
 		EnUs.stTxt(txts);
 
 		return EnUs;
@@ -103,10 +174,20 @@ public class JViNoMdt{
 	/**
 	 *	Statics for imgs. JViNoM currently does not have sound. It supports it, but does not comes with samples or anything.
 	 */
-	public static Sttc imgs(){
+	public static Sttc[] imgs(){
+		Sttc[] rtrnbl=new Sttc[3];
 		Sttc icon=new Sttc();
 		icon.stFlNm("jainima");
 		icon.stLctn("jainima.png");
-		return icon;
+		rtrnbl[0]=icon;
+		icon=new Sttc();
+		icon.stFlNm("help");
+		icon.stLctn("help.png");
+		rtrnbl[1]=icon;
+		icon=new Sttc();
+		icon.stFlNm("svIcon");
+		icon.stLctn("save.png");
+		rtrnbl[2]=icon;
+		return rtrnbl;
 	}
 }

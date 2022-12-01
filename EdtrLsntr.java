@@ -29,16 +29,6 @@ public class EdtrLsntr implements MouseListener{
 		mvng=null;
 		orgn=null;
 	}
-	public void igntCnvs(){
-			PrjctDAO prjctDAO=new PrjctDAO();
-			prjct=prjctDAO.gt(srcF.gtPrjctId());
-			ScnDAO scnDAO=new ScnDAO(prjct);
-			Scn scn=scnDAO.gt(srcF.gtScnId());
-			Lyr[] lyrs=scn.gtLyrs();
-			for(int i=0;i<lyrs.length;i++){
-				srcF.stLyr(i,lyrs[i].gtCmpnnts());
-			}
-	}
 	public void mouseEntered(MouseEvent e){
 		return;
 	}
@@ -79,11 +69,13 @@ public class EdtrLsntr implements MouseListener{
 				prmtrs[2]=(Lyr[])l.toArray(new Lyr[0]);
 				scnDAO.updt(srcF.gtScnId(),prmtrs);
 				ArrayList<Scn> mg=scnDAO.gtAll();
+				prjct=prjctDAO.gt(srcF.gtPrjctId());
 				prjct.stScns((Scn[])mg.toArray(new Scn[0]));
 				prjctSrvc.svPrjct(prjct);
 				srcF.cncl();
 				return;
 			}
+			srcF.stSlct(ext);
 		}catch(Exception ex){
 			ex.printStackTrace();
 			srcF.cncl();

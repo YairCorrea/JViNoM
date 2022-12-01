@@ -17,6 +17,7 @@ public class Edtr extends GSttIntrfc{
 	private TxtFtchr txtFtchr=TxtFtchr.gtInstnc();
 	private SttcFtchr sttcFtchr=new SttcFtchr();
 	private EdtrLsntr edtrLstnr;
+	private int crrntLyr;
 	private ArrayList<JComponent[]> lyrs=new ArrayList<JComponent[]>();
 	private int prjctId,scnId;
 	private JComponent mvn;
@@ -32,10 +33,10 @@ public class Edtr extends GSttIntrfc{
 		super.gtCntxt().gtCrtNwPrjct();
 	}
 	public void crtNwScn(){
-		//NA
+		System.out.println("Not available");
 	}
 	public void opnFl(){
-		//NA
+		super.gtCntxt().gtStrtMn().opnFl();
 	}
 	public void cncl(){
 		JPnlCrtl cntxt=super.gtCntxt();
@@ -49,14 +50,23 @@ public class Edtr extends GSttIntrfc{
 		return prjctId;
 	}
 	public void stScn(int prjctId){
+		lyrs=new ArrayList<JComponent[]>();
+		crrntLyr=0;
 		this.scnId=prjctId;
+	}
+	public int gtCrrntLyr(){
+		return crrntLyr;
+	}
+	public void stCrrntLyr(int c){
+		this.crrntLyr=c;
 	}
 	public int gtScnId(){
 		return scnId;
 	}
 	public void stLyr(int lyrId,JComponent[] cmpnnts){
-		lyrs.add(lyrId,cmpnnts);
+		lyrs.set(lyrId,cmpnnts);
 		MouseListener[] cnfrm;
+		System.out.println();
 		JPanel lyr=new JPanel();
 		for(JComponent ele:cmpnnts){
 			cnfrm=(MouseListener[])ele.getListeners(MouseListener.class);
@@ -64,12 +74,19 @@ public class Edtr extends GSttIntrfc{
 			lyr.add(ele);
 		}
 		rtrnbl.add(lyr);
+		rtrnbl.repaint();
+	}
+	public void stLyrs(ArrayList<JComponent[]> lyrs){
+		this.lyrs=lyrs;
 	}
 	public ArrayList<JComponent[]> gtLyrs(){
 		return lyrs;
 	}
 	public void stSlct(JComponent e){
 		this.mvn=e;
+		JPnlCrtl cntxt=super.gtCntxt();
+		cntxt.ntfy();
+
 	}
 	public JComponent gtCrrntSlct(){
 		return mvn;
@@ -81,6 +98,7 @@ public class Edtr extends GSttIntrfc{
 	 */
 	public JPanel gtVw(int wdth,int hght){
 		if(rtrnbl==null){
+			lyrs=new ArrayList<JComponent[]>();
 			SpringLayout lyt=new SpringLayout();
 			rtrnbl=new JPanel(lyt);
 			edtrLstnr=new EdtrLsntr(this);
@@ -89,8 +107,10 @@ public class Edtr extends GSttIntrfc{
 			rtrnbl.setSize(wdth,hght);
 		}
 		rtrnbl.removeAll();
+		for(int i=0;i<lyrs.size();i++){
+			stLyr(i,lyrs.get(i));
+		}
 		rtrnbl.add(ext);
-		edtrLstnr.igntCnvs();
 		return rtrnbl;
 	}
 }

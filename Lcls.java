@@ -29,4 +29,8 @@ public class Lcls implements Serializable{
 	public void stLclNm(String lclNm){
 		this.lclNm=lclNm;
 	}
+	@Override
+	public String toString(){
+		return lclNm;
+	}
 }

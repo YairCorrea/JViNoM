@@ -19,6 +19,7 @@ public class MnWndw implements Wndw,Obsrvr{
 	private JFrame mnWndw;
 	private JPnlCrtl main;
 	private int wdth,hght;
+	private MnBr mnBr;
 	/**
 	 *	Returns the view of this state/view.
 	 *	Viewing elements go here.
@@ -44,7 +45,8 @@ public class MnWndw implements Wndw,Obsrvr{
 		return null;
 	}
 
-	public void updt(JPanel cntr){	
+	public void updt(JPanel cntr){
+		mnBr.stStt(main.gtStt());	
 		JPanel lyrLstVw=(new LyrLstVw(ttl,main)).obtnrCrtl();
 		JPanel snglAsstVw=(new SnglAsstVw(ttl,main)).obtnrCrtl();
 		cntr.add(lyrLstVw);
@@ -59,7 +61,6 @@ public class MnWndw implements Wndw,Obsrvr{
 		cntr.setLayout(lyt);
 		
 		mnWndw.setContentPane(cntr);
-		mnWndw.repaint();
 	}
 	/**
 	 * 	Returns this frame's title.
@@ -94,12 +95,12 @@ public class MnWndw implements Wndw,Obsrvr{
 		mnWndw.setSize(wdth,hght);
 		mnWndw.setIconImage(icLctn);
 		
-		MnBr mnBr=new MnBr();
-
-		mnWndw.setJMenuBar(mnBr.gtMb());
 			
 		main=new JPnlCrtl(ttl,wdth,hght,this);
 		main.attch(this);
+		
+		mnBr=new MnBr(ttl,main);
+		mnWndw.setJMenuBar(mnBr.gtMb());
 
 		JPanel cntr=main.obtnrCrtl();
 

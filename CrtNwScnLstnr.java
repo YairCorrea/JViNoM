@@ -34,7 +34,6 @@ public class CrtNwScnLstnr implements ActionListener{
 			//Creates scene.
 			Scn scn=new Scn();
 			scn.stNm(nmt);
-			scn.stLyrs(new Lyr[0]);
 			scn.stPrjctId(srcF.gtPrjctId());
 			
 			//Registers new scene.
@@ -48,17 +47,32 @@ public class CrtNwScnLstnr implements ActionListener{
 			Prjct crrnt=prjctDAO.gt(srcF.gtPrjctId());
 			Scn[] scns=crrnt.gtScns();
 			Scn[] nwScns=new Scn[scns.length+1];
+			Lyr[] req=new Lyr[1];
+			
+			Lyr asd=new Lyr();
+			
+			asd.stScnId(scns.length);
+			asd.stOrdr(scns.length);
+			asd.stNm(scns.length+"");
+			asd.stCmpnnts(new JComponent[0]);
+			asd.stId(0);
+			
+			req[0]=asd;
+
+			scn.stLyrs(req);
+			
 			for(int i=0;i<scns.length;i++){
 				nwScns[i]=scns[i];
 			}
+			//Investigate this part
 			nwScns[scns.length]=scn;
+			
 			Object[] nwDt=new Object[4];
 			nwDt[0]=crrnt.gtLctn();
 			nwDt[1]=crrnt.gtNm();
 			nwDt[2]=crrnt.gtAspctRltn();
 			nwDt[3]=nwScns;
-			prjctDAO.updt(srcF.gtPrjctId(),nwDt);
-						
+			prjctDAO.updt(srcF.gtPrjctId(),nwDt);		
 			//Enters into the editor
 			Edtr edtr=(Edtr)cntxt.gtEdtr();
 			edtr.stScn(scnId);
