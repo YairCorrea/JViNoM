@@ -26,7 +26,6 @@ public class LyrLstVwLstnr implements MouseListener{
 		scn=scnDAO.gt(scnId);
 		if(((Edtr)srcF.gtStt()).gtLyrs().size()==0){
 			lyrs=new ArrayList<Lyr>(Arrays.asList(scn.gtLyrs()));
-			System.out.println(lyrs.size());
 			ArrayList<JComponent[]> cmpnts=new ArrayList<JComponent[]>();
 			for(Lyr lyr:lyrs){
 				cmpnts.add(lyr.gtCmpnnts());
@@ -66,6 +65,11 @@ public class LyrLstVwLstnr implements MouseListener{
 	public void mouseClicked(MouseEvent e){
 		try{
 			JLabel src=(JLabel)e.getSource();
+			src.setOpaque(true);
+			src.setBackground(Color.BLUE);
+			Edtr uwu=((Edtr)srcF.gtStt());
+			uwu.stCrrntLyr(Integer.parseInt(src.getText()));
+			src.repaint();
 			return ;
 		}catch(Exception ex){
 			JButton src=(JButton)e.getSource();

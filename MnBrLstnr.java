@@ -46,6 +46,7 @@ public class MnBrLstnr implements ActionListener{
 				return;}
 			if(tmp==txtFtchr.gtTxt(36)){
 				//Saves current project
+				((Edtr)cntxt).sv();
 				return;}
 			if(tmp==txtFtchr.gtTxt(37)){
 				//Saves current project at specified location

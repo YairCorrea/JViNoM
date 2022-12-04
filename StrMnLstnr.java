@@ -127,6 +127,7 @@ public class StrMnLstnr implements MouseListener{
 		PrjctScnsLst prjctLst=(PrjctScnsLst)cntxt.gtPrjctScnsLst();
 		prjctLst.stPrjct(prjctId);
 		cntxt.stStt(cntxt.gtPrjctScnsLst());
+		((TrEdtr)cntxt.gtTrEdtr()).stPrjct(prjctId);
 		cntxt.ntfy();
 			return;
 	}

@@ -21,10 +21,8 @@ public class FlWrtr<T>{
 			in.close();
 			flIn.close();
 		}catch(IOException i){
-			i.printStackTrace();
 			return rtrnbl;
 		}catch(Exception ex){
-			ex.printStackTrace();
 			return rtrnbl;
 		}
 		return rtrnbl;
@@ -38,7 +36,6 @@ public class FlWrtr<T>{
 			ot.close();
 			flOt.close();
 		}catch(IOException ex){
-			ex.printStackTrace();
 		}finally{
 			System.out.println(lctn+ " file saved");
 		}
@@ -51,7 +48,6 @@ public class FlWrtr<T>{
 			ot.close();
 			flOt.close();
 		}catch(IOException ex){
-			ex.printStackTrace();
 		}finally{
 			System.out.println(lctn+ " file saved");
 		}

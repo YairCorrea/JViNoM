@@ -11,6 +11,7 @@ public class Scn implements Serializable{
 	private int id;
 	private int prjctId;
 	private Lyr[] lyrs;
+	private int[] ndIds;
 	
 	public int gtId(){
 		return id;

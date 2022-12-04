@@ -46,17 +46,23 @@ public class MnWndw implements Wndw,Obsrvr{
 	}
 
 	public void updt(JPanel cntr){
-		mnBr.stStt(main.gtStt());	
+		mnBr.stStt(main.gtStt());
+		
+		JPanel trEdtr=main.gtTrEdtr().gtVw(wdth,hght);
 		JPanel lyrLstVw=(new LyrLstVw(ttl,main)).obtnrCrtl();
 		JPanel snglAsstVw=(new SnglAsstVw(ttl,main)).obtnrCrtl();
+
 		cntr.add(lyrLstVw);
 		cntr.add(snglAsstVw);
+		cntr.add(trEdtr);
 		
 		SpringLayout lyt=(SpringLayout)cntr.getLayout();
 
 		lyt.putConstraint(SpringLayout.EAST,lyrLstVw,6,SpringLayout.EAST,cntr);
+		lyt.putConstraint(SpringLayout.NORTH,lyrLstVw,6,SpringLayout.NORTH,cntr);
 		lyt.putConstraint(SpringLayout.NORTH,snglAsstVw,6,SpringLayout.SOUTH,lyrLstVw);
 		lyt.putConstraint(SpringLayout.EAST,snglAsstVw,6,SpringLayout.EAST,cntr);
+		lyt.putConstraint(SpringLayout.SOUTH,trEdtr,6,SpringLayout.SOUTH,cntr);
 
 		cntr.setLayout(lyt);
 		
@@ -112,6 +118,7 @@ public class MnWndw implements Wndw,Obsrvr{
 		SpringLayout lyt=(SpringLayout)cntr.getLayout();
 
 		lyt.putConstraint(SpringLayout.EAST,lyrLstVw,6,SpringLayout.EAST,cntr);
+		lyt.putConstraint(SpringLayout.NORTH,lyrLstVw,6,SpringLayout.NORTH,cntr);
 		lyt.putConstraint(SpringLayout.NORTH,snglAsstVw,6,SpringLayout.SOUTH,lyrLstVw);
 		lyt.putConstraint(SpringLayout.EAST,snglAsstVw,6,SpringLayout.EAST,cntr);
 

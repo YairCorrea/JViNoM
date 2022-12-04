@@ -45,12 +45,13 @@ public class CrtNwPrjctLstnr implements ActionListener{
 			prjct.stAspctRltn(efe);
 			PrjctSrvc prjctSrvc=new PrjctSrvc(new PrjctDAO());
 			prjctSrvc.stPrjct(prjct);
-
+			
 			int prjctId=prjctSrvc.save();
 			PrjctScnsLst prjctLst=(PrjctScnsLst)cntxt.gtPrjctScnsLst();
 			prjctLst.stPrjct(prjctId);
 			cntxt.stStt(cntxt.gtPrjctScnsLst());
 
+			((TrEdtr)cntxt.gtTrEdtr()).stPrjct(prjctId);
 			srcF.crtNwPrjct();
 			cntxt.ntfy();
 			return;

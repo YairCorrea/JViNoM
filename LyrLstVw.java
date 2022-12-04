@@ -14,7 +14,7 @@ import JViNoM.Cntrllr.*;
  *	@Version 2211
  */
 
-public class LyrLstVw extends AsstVw {
+public class LyrLstVw extends AsstVw implements Obsrvr{
 	private JPanel rtrnbl;
 	private TxtFtchr txtFtchr=TxtFtchr.gtInstnc();
 	private String ttl1;
@@ -29,6 +29,9 @@ public class LyrLstVw extends AsstVw {
 	public void rcvNwLyrs(ArrayList<JComponent[]> crrnt){
 		this.crrnt=crrnt;
 
+	}
+	public void updt(JPanel ignore){
+		rtrnbl.repaint();
 	}
 	public JPanel obtnrCrtl(){
 		rtrnbl.removeAll();

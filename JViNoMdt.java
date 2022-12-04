@@ -99,11 +99,15 @@ public class JViNoMdt{
 	 *	48.- New window
 	 *	49.- New view
 	 *	50.- Import image
+	 *	51.- Tree view
+	 *	52.- Add children
+	 *	53.- Select node
+	 *	54.- Make options
 	 */
 	public static Lcls EsMxLcls(){
 		Lcls EsMx=new Lcls();
 		EsMx.stLclNm("EsMx");
-		String[] txts={"JViNoM","Inicio!","Nuevo Proyecto","Abrir proyecto","Reciente","No hay proyectos recientes :( (Porque no empezar uno :D?)","COOMunidad","Manual","Codigo fuente","Creando nuevo proyecto ","Nombre del proyecto:","Guardar en: "," Relacion de aspecto :"," Crear", "Cancelar","Regresar","Escenas","No hay escenas!(Porque no hacer una?)","Crear nueva escena","Escenas recientes","No hay escenas recientes","Nombre de la escena","Archivo","Editar","Imagen","Capa","Seleccion","Scripts","Configuraciones","Ventana","Ayuda","Carga una escena primero","Selecciona algun elemento para verlo aqui","Capas","Observador del asset","Nuevo proyecto","Salvar","Salvar como","Abrir escena","Voltear horizontalmente","Voltear verticalmente","Cortar capa","Pegar capa","Nueva capa","Crear script","Abrir script","Configuracion de idioma","Nueva ventana","Nueva vista","Importar imagen"};
+		String[] txts={"JViNoM","Inicio!","Nuevo Proyecto","Abrir proyecto","Reciente","No hay proyectos recientes :( (Porque no empezar uno :D?)","COOMunidad","Manual","Codigo fuente","Creando nuevo proyecto ","Nombre del proyecto:","Guardar en: "," Relacion de aspecto :"," Crear", "Cancelar","Regresar","Escenas","No hay escenas!(Porque no hacer una?)","Crear nueva escena","Escenas recientes","No hay escenas recientes","Nombre de la escena","Archivo","Editar","Imagen","Capa","Seleccion","Scripts","Configuraciones","Ventana","Ayuda","Carga una escena primero","Selecciona algun elemento para verlo aqui","Capas","Observador del asset","Nuevo proyecto","Salvar","Salvar como","Abrir escena","Voltear horizontalmente","Voltear verticalmente","Cortar capa","Pegar capa","Nueva capa","Crear script","Abrir script","Configuracion de idioma","Nueva ventana","Nueva vista","Importar imagen","Vista del arbol","Agregar hijos","Seleccionar nodo","Crear transiciones"};
 		EsMx.stTxt(txts);
 
 		return EsMx;
@@ -160,12 +164,16 @@ public class JViNoMdt{
 	 *	48.- New window
 	 *	49.- New view
 	 *	50.- Import image.
+	 *	51.- Tree view
+	 *	52.- Add children
+	 *	53.- Select node
+	 *	54.- Make options
 	 */
 
 	public static Lcls EnUsLcls(){
 		Lcls EnUs=new Lcls();
 		EnUs.stLclNm("EnUs");
-		String[] txts={"JViNoM","Start!","New Project","Open project","Recent","Not a single recent project:( ( Why not start today :D?)","CUMunity","Manual","Source Code","New project .- ","Project's name:","Save on: ","Aspect ratio :","Create", "Cancel","Back","Scenes","No scenes!(Make one, pretty please?)","Create new scene","Recent scenes","No recent scenes","Scene's name :","File","Edit","Image","Layer","Select","Scripts","Configurations","Frame","Help","Load a scene first","Select an element to see it here","Layers","Asset view","New Project","Save","Save as","Open scene","Mirror horizontally","Mirror vertically","Cut layer","Paste layer","New layer","Create script","Edit script","Language settings","New window","New view","Import image"};
+		String[] txts={"JViNoM","Start!","New Project","Open project","Recent","Not a single recent project:( ( Why not start today :D?)","CUMunity","Manual","Source Code","New project .- ","Project's name:","Save on: ","Aspect ratio :","Create", "Cancel","Back","Scenes","No scenes!(Make one, pretty please?)","Create new scene","Recent scenes","No recent scenes","Scene's name :","File","Edit","Image","Layer","Select","Scripts","Configurations","Frame","Help","Load a scene first","Select an element to see it here","Layers","Asset view","New Project","Save","Save as","Open scene","Mirror horizontally","Mirror vertically","Cut layer","Paste layer","New layer","Create script","Edit script","Language settings","New window","New view","Import image","Tree view","Add children","Select node","Make options"};
 		EnUs.stTxt(txts);
 
 		return EnUs;

@@ -11,7 +11,7 @@ import JViNoM.Cntrllr.*;
  *	@Version 2211
  */
 
-public class SnglAsstVw extends AsstVw{
+public class SnglAsstVw extends AsstVw implements Obsrvr{
 	private JPanel rtrnbl;
 	private TxtFtchr txtFtchr=TxtFtchr.gtInstnc();
 	private String ttl1;
@@ -21,12 +21,29 @@ public class SnglAsstVw extends AsstVw{
 		rtrnbl=new JPanel();
 		Border blck=BorderFactory.createLineBorder(Color.black);
 		rtrnbl.setBorder(blck);
+	}
+	public void updt(JPanel ignore){
+		rtrnbl.removeAll();
+		rtrnbl.add(new JLabel(txtFtchr.gtTxt(34)));
+		Edtr edtr=(Edtr)super.gtStt();
+		JComponent crrnt=edtr.gtCrrntSlct();
+		if(crrnt==null){
+			JLabel ntSlctd=new JLabel(txtFtchr.gtTxt(32));
+			rtrnbl.add(ntSlctd);
+		}else{
+			JTextArea x=new JTextArea(crrnt.getLocation().getX()+"");
+			JTextArea y=new JTextArea(crrnt.getLocation().getY()+"");
+			rtrnbl.add(x);
+			rtrnbl.add(y);
+		}
+		rtrnbl.repaint();	
 	}	
 	public JPanel obtnrCrtl(){
 		rtrnbl.removeAll();
 		rtrnbl.add(new JLabel(txtFtchr.gtTxt(34)));
 		if(super.gtStt().getClass()==Edtr.class){
 			Edtr edtr=(Edtr)super.gtStt();
+			edtr.attch(this);
 			JComponent crrnt=edtr.gtCrrntSlct();
 			if(crrnt==null){
 				JLabel ntSlctd=new JLabel(txtFtchr.gtTxt(32));
